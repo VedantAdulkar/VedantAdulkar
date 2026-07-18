@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180">
+    <rect width="800" height="180" fill="#ffffff" rx="6" />
+    <style>
+        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; opacity: 0.8; }
+        .accent { fill: #0969da; }
+        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
+    </style>
+    
+    <g transform="translate(40, 60)">
+        <text class="title" x="0" y="0">Vedant Adulkar</text>
+        <text class="subtitle" x="0" y="30">AI &amp; Machine Learning Engineer | Generative AI Enthusiast</text>
+        <line x1="0" y1="50" x2="600" y2="50" stroke="#0969da" stroke-width="2" />
+        <text class="text" x="0" y="80">Transforming data into intelligent systems.</text>
+    </g>
+    
+</svg>

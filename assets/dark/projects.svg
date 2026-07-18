@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340">
+    <rect width="800" height="340" fill="#0d1117" rx="6" />
+    <style>
+        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; opacity: 0.8; }
+        .accent { fill: #58a6ff; }
+        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
+    </style>
+    
+    <g transform="translate(40, 40)">
+        <text class="title" x="0" y="0">projects ecosystem</text>
+        
+        <a href="https://github.com/VedantAdulkar/DroneGCS" target="_blank">
+            <g transform="translate(0, 30)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">DroneGCS</text>
+                <text class="text" x="15" y="50">Drone Ground Control Station</text>
+            </g>
+        </a>
+        
+        <a href="https://github.com/VedantAdulkar/KnowAI_v1" target="_blank">
+            <g transform="translate(370, 30)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">KnowAI_v1</text>
+                <text class="text" x="15" y="50">AI Knowledge Assistant</text>
+            </g>
+        </a>
+        
+        <a href="https://github.com/VedantAdulkar/local_RAG" target="_blank">
+            <g transform="translate(0, 115)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">local_RAG</text>
+                <text class="text" x="15" y="50">Local Retrieval-Augmented Generation</text>
+            </g>
+        </a>
+        
+        <a href="https://github.com/VedantAdulkar/MA_13_DocSummariser" target="_blank">
+            <g transform="translate(370, 115)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">MA_13_DocSummariser</text>
+                <text class="text" x="15" y="50">Document Summarization Tool</text>
+            </g>
+        </a>
+        
+        <a href="https://github.com/VedantAdulkar/Placement-Predictor" target="_blank">
+            <g transform="translate(0, 200)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">Placement-Predictor</text>
+                <text class="text" x="15" y="50">ML Model for Placement Prediction</text>
+            </g>
+        </a>
+        
+        <a href="https://github.com/VedantAdulkar/Profile-site-2.0" target="_blank">
+            <g transform="translate(370, 200)">
+                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
+                <text class="highlight" x="15" y="25">Profile-site-2.0</text>
+                <text class="text" x="15" y="50">Angular-based Personal Portfolio</text>
+            </g>
+        </a>
+    </g>
+    
+</svg>

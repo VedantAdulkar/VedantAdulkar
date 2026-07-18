@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+    <rect width="800" height="200" fill="#ffffff" rx="6" />
+    <style>
+        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; opacity: 0.8; }
+        .accent { fill: #0969da; }
+        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
+    </style>
+    
+    <g transform="translate(40, 40)">
+        <text class="title" x="0" y="0">whoami</text>
+        <text class="text" x="0" y="40">&gt; Pronouns: He/Him</text>
+        <text class="text" x="0" y="70">&gt; Current Focus: <tspan class="highlight">Generative AI</tspan> and <tspan class="highlight">Reinforcement Learning</tspan></text>
+        <text class="text" x="0" y="100">&gt; Passion: Building data-driven systems &amp; deploying ML models.</text>
+        <text class="text" x="0" y="130">&gt; Fun Fact: I believe every dataset hides a story — my job is to make it speak!</text>
+    </g>
+    
+</svg>

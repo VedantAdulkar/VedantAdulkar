@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="260" viewBox="0 0 800 260">
+    <rect width="800" height="260" fill="#ffffff" rx="6" />
+    <style>
+        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; opacity: 0.8; }
+        .accent { fill: #0969da; }
+        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
+    </style>
+    
+    <g transform="translate(40, 40)">
+        <text class="title" x="0" y="0">technical stack</text>
+        <text class="highlight" x="0" y="40">Languages:</text> <text class="text" x="120" y="40">Python, SQL, JavaScript, C</text>
+        <text class="highlight" x="0" y="70">AI/ML:</text> <text class="text" x="120" y="70">TensorFlow, PyTorch, Scikit-learn, Keras</text>
+        <text class="highlight" x="0" y="100">Data Science:</text> <text class="text" x="120" y="100">NumPy, Pandas, Matplotlib, Power BI</text>
+        <text class="highlight" x="0" y="130">Backend:</text> <text class="text" x="120" y="130">Flask, FastAPI, Node.js</text>
+        <text class="highlight" x="0" y="160">Databases:</text> <text class="text" x="120" y="160">PostgreSQL, MySQL, MongoDB</text>
+        <text class="highlight" x="0" y="190">DevOps:</text> <text class="text" x="120" y="190">Git, Docker, CI/CD</text>
+    </g>
+    
+</svg>
