@@ -4,125 +4,226 @@ def create_svg(filename, width, height, is_dark, content):
     bg_color = "#0d1117" if is_dark else "#ffffff"
     text_color = "#c9d1d9" if is_dark else "#24292f"
     accent_color = "#58a6ff" if is_dark else "#0969da"
+    grid_color = "#30363d" if is_dark else "#e1e4e8"
     
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
-    <rect width="{width}" height="{height}" fill="{bg_color}" rx="6" />
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="{grid_color}" stroke-width="0.5" stroke-dasharray="2,2"/>
+        </pattern>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="{grid_color}" opacity="0.5"/>
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:{accent_color};stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
+    <rect width="{width}" height="{height}" fill="url(#grid)" rx="8" />
     <style>
-        .title {{ font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
-        .subtitle {{ font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; opacity: 0.8; }}
-        .accent {{ fill: {accent_color}; }}
-        .text {{ font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
+        .title {{ font: 700 28px 'Fira Code', 'Courier New', monospace; fill: {text_color}; letter-spacing: -0.5px; }}
+        .subtitle {{ font: 400 16px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.7; }}
+        .mono {{ font: 400 14px 'Fira Code', 'Courier New', monospace; fill: {text_color}; }}
+        .mono-small {{ font: 400 12px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
+        .accent {{ fill: {accent_color}; font-weight: 600; }}
         .highlight {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {accent_color}; }}
+        .text {{ font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
+        .box {{ fill: none; stroke: {grid_color}; stroke-width: 1; rx: 6px; }}
     </style>
     {content}
+    <rect width="{width}" height="{height}" fill="none" stroke="{grid_color}" stroke-width="2" rx="8" />
 </svg>"""
     with open(filename, "w", encoding="utf-8") as f:
         f.write(svg)
 
 def generate_header(is_dark):
-    bg_color = "#0d1117" if is_dark else "#ffffff"
-    text_color = "#c9d1d9" if is_dark else "#24292f"
     accent = "#58a6ff" if is_dark else "#0969da"
-    
     content = f"""
-    <g transform="translate(40, 60)">
-        <text class="title" x="0" y="0">Vedant Adulkar</text>
-        <text class="subtitle" x="0" y="30">AI &amp; Machine Learning Engineer | Generative AI Enthusiast</text>
-        <line x1="0" y1="50" x2="600" y2="50" stroke="{accent}" stroke-width="2" />
-        <text class="text" x="0" y="80">Transforming data into intelligent systems.</text>
+    <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
+    <g transform="translate(50, 50)">
+        <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
+        <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
+        <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+        <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."</text>
+        
+        <!-- Live Links Section -->
+        <g transform="translate(0, 115)">
+            <rect class="box" x="0" y="-20" width="350" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
+            <circle cx="15" cy="-5" r="4" fill="#238636" />
+            <text class="mono" x="28" y="0">Live Profile: <tspan class="accent">profile-site-2-0.onrender.com</tspan></text>
+        </g>
     </g>
+    <rect x="700" y="20" width="80" height="140" fill="url(#dots)"/>
     """
     path = "assets/dark/header.svg" if is_dark else "assets/header.svg"
-    create_svg(path, 800, 180, is_dark, content)
+    create_svg(path, 800, 200, is_dark, content)
 
 def generate_whoami(is_dark):
-    bg_color = "#0d1117" if is_dark else "#ffffff"
-    text_color = "#c9d1d9" if is_dark else "#24292f"
     accent = "#58a6ff" if is_dark else "#0969da"
-    
     content = f"""
-    <g transform="translate(40, 40)">
-        <text class="title" x="0" y="0">whoami</text>
-        <text class="text" x="0" y="40">&gt; Pronouns: He/Him</text>
-        <text class="text" x="0" y="70">&gt; Current Focus: <tspan class="highlight">Generative AI</tspan> and <tspan class="highlight">Reinforcement Learning</tspan></text>
-        <text class="text" x="0" y="100">&gt; Passion: Building data-driven systems &amp; deploying ML models.</text>
-        <text class="text" x="0" y="130">&gt; Fun Fact: I believe every dataset hides a story — my job is to make it speak!</text>
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">01 — whoami</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
+        
+        <g transform="translate(20, 50)">
+            <rect class="box" x="0" y="0" width="700" height="120" />
+            <circle cx="20" cy="20" r="5" fill="#ff5f56"/>
+            <circle cx="40" cy="20" r="5" fill="#ffbd2e"/>
+            <circle cx="60" cy="20" r="5" fill="#27c93f"/>
+            <line x1="0" y1="40" x2="700" y2="40" stroke="#30363d" stroke-width="1"/>
+            
+            <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+            <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust machine learning solutions.</text>
+        </g>
     </g>
     """
     path = "assets/dark/whoami.svg" if is_dark else "assets/whoami.svg"
-    create_svg(path, 800, 200, is_dark, content)
+    create_svg(path, 800, 220, is_dark, content)
+
+def generate_experience(is_dark):
+    accent = "#58a6ff" if is_dark else "#0969da"
+    grid = "#30363d" if is_dark else "#e1e4e8"
+    content = f"""
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">02 — telemetry_&amp;_timeline</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
+        
+        <!-- Timeline Line -->
+        <line x1="40" y1="60" x2="40" y2="280" stroke="{grid}" stroke-width="2" />
+        
+        <!-- ICRA Analytics -->
+        <g transform="translate(40, 80)">
+            <circle cx="0" cy="0" r="6" fill="{accent}" />
+            <circle cx="0" cy="0" r="10" fill="none" stroke="{accent}" stroke-width="1.5">
+                <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text class="mono accent" x="25" y="-5">Data / AI Engineer @ ICRA Analytics - Fintellix</text>
+            <text class="mono-small" x="25" y="15">1+ Years • Building Enterprise AI Systems • LLMs • RAG Models</text>
+            <rect class="box" x="20" y="25" width="650" height="30" fill="{accent}" fill-opacity="0.05" stroke-opacity="0"/>
+            <text class="mono-small" x="30" y="45">&gt; Spearheading the implementation of generative AI architectures for major clients.</text>
+        </g>
+
+        <!-- Earlier Work / Evolution -->
+        <g transform="translate(40, 180)">
+            <circle cx="0" cy="0" r="5" fill="{grid}" />
+            <text class="mono" x="25" y="-5" fill="{grid}">Project Evolution &amp; Foundation</text>
+            <text class="mono-small" x="25" y="15">Developed multiple AI pipelines including DocQ summarizer &amp; autonomous drones.</text>
+            <text class="mono-small" x="25" y="35">Expertise built across Python, ML Algorithms, and APIs.</text>
+        </g>
+    </g>
+    """
+    path = "assets/dark/experience.svg" if is_dark else "assets/experience.svg"
+    create_svg(path, 800, 300, is_dark, content)
+
 
 def generate_stack(is_dark):
+    accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
-    <g transform="translate(40, 40)">
-        <text class="title" x="0" y="0">technical stack</text>
-        <text class="highlight" x="0" y="40">Languages:</text> <text class="text" x="120" y="40">Python, SQL, JavaScript, C</text>
-        <text class="highlight" x="0" y="70">AI/ML:</text> <text class="text" x="120" y="70">TensorFlow, PyTorch, Scikit-learn, Keras</text>
-        <text class="highlight" x="0" y="100">Data Science:</text> <text class="text" x="120" y="100">NumPy, Pandas, Matplotlib, Power BI</text>
-        <text class="highlight" x="0" y="130">Backend:</text> <text class="text" x="120" y="130">Flask, FastAPI, Node.js</text>
-        <text class="highlight" x="0" y="160">Databases:</text> <text class="text" x="120" y="160">PostgreSQL, MySQL, MongoDB</text>
-        <text class="highlight" x="0" y="190">DevOps:</text> <text class="text" x="120" y="190">Git, Docker, CI/CD</text>
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">03 — technical_stack</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
+        
+        <g transform="translate(0, 40)">
+            <!-- Column 1 -->
+            <rect class="box" x="0" y="0" width="230" height="120"/>
+            <text class="mono accent" x="15" y="25">AI &amp; Models</text>
+            <text class="mono" x="15" y="50">LLMs • RAG</text>
+            <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
+            <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
+            <text class="mono" x="15" y="110">OpenAI API</text>
+
+            <!-- Column 2 -->
+            <rect class="box" x="250" y="0" width="230" height="120"/>
+            <text class="mono accent" x="265" y="25">Core &amp; Backend</text>
+            <text class="mono" x="265" y="50">Python • Java • C/C++</text>
+            <text class="mono" x="265" y="70">SQL • JDBC</text>
+            <text class="mono" x="265" y="90">Flask • FastAPI</text>
+            <text class="mono" x="265" y="110">JavaScript • Angular</text>
+
+            <!-- Column 3 -->
+            <rect class="box" x="500" y="0" width="240" height="120"/>
+            <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
+            <text class="mono" x="515" y="50">AWS • Docker</text>
+            <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
+            <text class="mono" x="515" y="90">Power BI • Pandas</text>
+            <text class="mono" x="515" y="110">Git • CI/CD Pipelines</text>
+        </g>
     </g>
     """
     path = "assets/dark/stack.svg" if is_dark else "assets/stack.svg"
-    create_svg(path, 800, 260, is_dark, content)
+    create_svg(path, 800, 220, is_dark, content)
 
 def generate_projects(is_dark):
+    accent = "#58a6ff" if is_dark else "#0969da"
+    grid = "#30363d" if is_dark else "#e1e4e8"
     content = f"""
-    <g transform="translate(40, 40)">
-        <text class="title" x="0" y="0">projects ecosystem</text>
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">04 — ecosystem</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
-        <a href="https://github.com/VedantAdulkar/DroneGCS" target="_blank">
-            <g transform="translate(0, 30)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">DroneGCS</text>
-                <text class="text" x="15" y="50">Drone Ground Control Station</text>
-            </g>
-        </a>
+        <!-- Nodes Background Links -->
+        <path d="M 180 90 L 370 90" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 180 180 L 370 180" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 180 270 L 370 270" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
         
-        <a href="https://github.com/VedantAdulkar/KnowAI_v1" target="_blank">
-            <g transform="translate(370, 30)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">KnowAI_v1</text>
-                <text class="text" x="15" y="50">AI Knowledge Assistant</text>
-            </g>
-        </a>
+        <!-- Live Project Focus -->
+        <g transform="translate(0, 40)">
+            <rect class="box" x="0" y="0" width="360" height="85" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+            <circle cx="20" cy="25" r="5" fill="#238636">
+                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
+            <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
+            <text class="mono-small" x="35" y="70" fill="#238636">https://know-ai-news.vercel.app/</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/local_RAG" target="_blank">
-            <g transform="translate(0, 115)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">local_RAG</text>
-                <text class="text" x="15" y="50">Local Retrieval-Augmented Generation</text>
-            </g>
-        </a>
+        <g transform="translate(380, 40)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="{accent}"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
+            <text class="mono-small" x="35" y="50">All format summarizer (Image/PDF/Video) via AI.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/MA_13_DocSummariser" target="_blank">
-            <g transform="translate(370, 115)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">MA_13_DocSummariser</text>
-                <text class="text" x="15" y="50">Document Summarization Tool</text>
-            </g>
-        </a>
+        <g transform="translate(0, 140)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="{accent}"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone</tspan></text>
+            <text class="mono-small" x="35" y="50">Obstacle-avoiding drone navigation system.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / OpenCV</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/Placement-Predictor" target="_blank">
-            <g transform="translate(0, 200)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">Placement-Predictor</text>
-                <text class="text" x="15" y="50">ML Model for Placement Prediction</text>
-            </g>
-        </a>
+        <g transform="translate(380, 140)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="{accent}"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
+            <text class="mono-small" x="35" y="50">Intelligent agent via Google Speech &amp; OpenAI API.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / APIs</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/Profile-site-2.0" target="_blank">
-            <g transform="translate(370, 200)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">Profile-site-2.0</text>
-                <text class="text" x="15" y="50">Angular-based Personal Portfolio</text>
-            </g>
-        </a>
+        <g transform="translate(0, 240)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="{accent}"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
+            <text class="mono-small" x="35" y="50">ML system suggesting recipes based on ingredients.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+        </g>
+        
+        <g transform="translate(380, 240)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="{accent}"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan></text>
+            <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
+            <text class="mono-small" x="35" y="70">Stack: Angular / TypeScript</text>
+        </g>
+
     </g>
     """
     path = "assets/dark/projects.svg" if is_dark else "assets/projects.svg"
-    create_svg(path, 800, 340, is_dark, content)
+    create_svg(path, 800, 380, is_dark, content)
 
 
 def main():
@@ -131,6 +232,7 @@ def main():
     for is_dark in [True, False]:
         generate_header(is_dark)
         generate_whoami(is_dark)
+        generate_experience(is_dark)
         generate_stack(is_dark)
         generate_projects(is_dark)
         

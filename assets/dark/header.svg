@@ -27,9 +27,9 @@
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
     <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
-        <text class="mono" x="0" y="30">&gt; <tspan fill="#58a6ff">sys.role</tspan> = "AI &amp; Machine Learning Engineer"</text>
-        <text class="mono" x="0" y="55">&gt; <tspan fill="#58a6ff">sys.focus</tspan> = ["Generative AI", "Data Science"]</text>
-        <text class="mono" x="0" y="80">&gt; <tspan fill="#58a6ff">sys.status</tspan> = "Transforming data into intelligent systems."</text>
+        <text class="mono" x="0" y="30">&gt; <tspan fill="#58a6ff">sys.role</tspan> = "Data / AI Engineer"</text>
+        <text class="mono" x="0" y="55">&gt; <tspan fill="#58a6ff">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+        <text class="mono" x="0" y="80">&gt; <tspan fill="#58a6ff">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."</text>
         
         <!-- Live Links Section -->
         <g transform="translate(0, 115)">

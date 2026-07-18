@@ -25,14 +25,13 @@
     </style>
     
     <g transform="translate(30, 40)">
-        <text class="title" x="0" y="0">03 — ecosystem</text>
+        <text class="title" x="0" y="0">04 — ecosystem</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
         
         <!-- Nodes Background Links -->
         <path d="M 180 90 L 370 90" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
         <path d="M 180 180 L 370 180" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-        <path d="M 550 90 L 740 90" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-        <path d="M 550 180 L 740 180" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 180 270 L 370 270" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
         
         <!-- Live Project Focus -->
         <g transform="translate(0, 40)">
@@ -41,48 +40,48 @@
                 <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
             </circle>
             <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
-            <text class="mono-small" x="35" y="50">AI Knowledge Assistant</text>
+            <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
             <text class="mono-small" x="35" y="70" fill="#238636">https://know-ai-news.vercel.app/</text>
         </g>
         
         <g transform="translate(380, 40)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
             <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">local_RAG</tspan></text>
-            <text class="mono-small" x="35" y="50">Local Retrieval-Augmented Generation</text>
-            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/local_RAG</text>
+            <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
+            <text class="mono-small" x="35" y="50">All format summarizer (Image/PDF/Video) via AI.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
         </g>
         
         <g transform="translate(0, 140)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
             <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">DroneGCS</tspan></text>
-            <text class="mono-small" x="35" y="50">Drone Ground Control Station</text>
-            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/DroneGCS</text>
+            <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone</tspan></text>
+            <text class="mono-small" x="35" y="50">Obstacle-avoiding drone navigation system.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / OpenCV</text>
         </g>
         
         <g transform="translate(380, 140)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
             <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">MA_13_DocSummariser</tspan></text>
-            <text class="mono-small" x="35" y="50">Document Summarization Tool</text>
-            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/MA_13_DocSummariser</text>
+            <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
+            <text class="mono-small" x="35" y="50">Intelligent agent via Google Speech &amp; OpenAI API.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / APIs</text>
         </g>
         
         <g transform="translate(0, 240)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
             <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">Placement-Predictor</tspan></text>
-            <text class="mono-small" x="35" y="50">ML Model for Placement Prediction</text>
-            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/Placement-Predictor</text>
+            <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
+            <text class="mono-small" x="35" y="50">ML system suggesting recipes based on ingredients.</text>
+            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
         </g>
         
         <g transform="translate(380, 240)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
             <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
             <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan></text>
-            <text class="mono-small" x="35" y="50">Angular-based Personal Portfolio</text>
-            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/Profile-site-2.0</text>
+            <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
+            <text class="mono-small" x="35" y="70">Stack: Angular / TypeScript</text>
         </g>
 
     </g>

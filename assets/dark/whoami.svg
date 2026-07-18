@@ -35,9 +35,9 @@
             <circle cx="60" cy="20" r="5" fill="#27c93f"/>
             <line x1="0" y1="40" x2="700" y2="40" stroke="#30363d" stroke-width="1"/>
             
-            <text class="mono" x="20" y="65"><tspan class="accent">vedant@system</tspan>:~$ cat about_me.txt</text>
-            <text class="mono" x="20" y="90">Building data-driven systems &amp; deploying scalable ML models.</text>
-            <text class="mono" x="20" y="115">"I believe every dataset hides a story — my job is to make it speak!"</text>
+            <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+            <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust machine learning solutions.</text>
         </g>
     </g>
     

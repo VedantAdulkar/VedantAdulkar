@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>
+        </pattern>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#30363d" opacity="0.5"/>
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="800" height="300" fill="#0d1117" rx="8" />
+    <rect width="800" height="300" fill="url(#grid)" rx="8" />
+    <style>
+        .title { font: 700 28px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; letter-spacing: -0.5px; }
+        .subtitle { font: 400 16px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.7; }
+        .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; }
+        .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.6; }
+        .accent { fill: #58a6ff; font-weight: 600; }
+        .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
+        .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .box { fill: none; stroke: #30363d; stroke-width: 1; rx: 6px; }
+    </style>
+    
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">02 — telemetry_&amp;_timeline</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
+        
+        <!-- Timeline Line -->
+        <line x1="40" y1="60" x2="40" y2="280" stroke="#30363d" stroke-width="2" />
+        
+        <!-- ICRA Analytics -->
+        <g transform="translate(40, 80)">
+            <circle cx="0" cy="0" r="6" fill="#58a6ff" />
+            <circle cx="0" cy="0" r="10" fill="none" stroke="#58a6ff" stroke-width="1.5">
+                <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text class="mono accent" x="25" y="-5">Data / AI Engineer @ ICRA Analytics - Fintellix</text>
+            <text class="mono-small" x="25" y="15">1+ Years • Building Enterprise AI Systems • LLMs • RAG Models</text>
+            <rect class="box" x="20" y="25" width="650" height="30" fill="#58a6ff" fill-opacity="0.05" stroke-opacity="0"/>
+            <text class="mono-small" x="30" y="45">&gt; Spearheading the implementation of generative AI architectures for major clients.</text>
+        </g>
+
+        <!-- Earlier Work / Evolution -->
+        <g transform="translate(40, 180)">
+            <circle cx="0" cy="0" r="5" fill="#30363d" />
+            <text class="mono" x="25" y="-5" fill="#30363d">Project Evolution &amp; Foundation</text>
+            <text class="mono-small" x="25" y="15">Developed multiple AI pipelines including DocQ summarizer &amp; autonomous drones.</text>
+            <text class="mono-small" x="25" y="35">Expertise built across Python, ML Algorithms, and APIs.</text>
+        </g>
+    </g>
+    
+    <rect width="800" height="300" fill="none" stroke="#30363d" stroke-width="2" rx="8" />
+</svg>
