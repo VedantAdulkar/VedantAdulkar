@@ -21,7 +21,7 @@
         .accent { fill: #58a6ff; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-        .box { fill: none; stroke: #30363d; stroke-width: 1; rx: 6px; }
+        .box { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 6px; }
     </style>
     
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>

@@ -21,7 +21,7 @@
         .accent { fill: #0969da; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
-        .box { fill: none; stroke: #e1e4e8; stroke-width: 1; rx: 6px; }
+        .box { fill: #ffffff; stroke: #e1e4e8; stroke-width: 1; rx: 6px; }
     </style>
     
     <g transform="translate(30, 40)">

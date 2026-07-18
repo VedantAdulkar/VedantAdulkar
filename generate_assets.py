@@ -29,7 +29,7 @@ def create_svg(filename, width, height, is_dark, content):
         .accent {{ fill: {accent_color}; font-weight: 600; }}
         .highlight {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {accent_color}; }}
         .text {{ font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
-        .box {{ fill: none; stroke: {grid_color}; stroke-width: 1; rx: 6px; }}
+        .box {{ fill: {bg_color}; stroke: {grid_color}; stroke-width: 1; rx: 6px; }}
     </style>
     {content}
     <rect width="{width}" height="{height}" fill="none" stroke="{grid_color}" stroke-width="2" rx="8" />
@@ -67,7 +67,7 @@ def generate_whoami(is_dark):
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
         <g transform="translate(20, 50)">
-            <rect class="box" x="0" y="0" width="700" height="120" />
+            <rect class="box" x="0" y="0" width="700" height="145" />
             <circle cx="20" cy="20" r="5" fill="#ff5f56"/>
             <circle cx="40" cy="20" r="5" fill="#ffbd2e"/>
             <circle cx="60" cy="20" r="5" fill="#27c93f"/>
@@ -75,12 +75,13 @@ def generate_whoami(is_dark):
             
             <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
             <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
-            <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust machine learning solutions.</text>
+            <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
+            <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.</text>
         </g>
     </g>
     """
     path = "assets/dark/whoami.svg" if is_dark else "assets/whoami.svg"
-    create_svg(path, 800, 220, is_dark, content)
+    create_svg(path, 800, 245, is_dark, content)
 
 def generate_experience(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
@@ -102,6 +103,7 @@ def generate_experience(is_dark):
             </circle>
             <text class="mono accent" x="25" y="-5">Data / AI Engineer @ ICRA Analytics - Fintellix</text>
             <text class="mono-small" x="25" y="15">1+ Years • Building Enterprise AI Systems • LLMs • RAG Models</text>
+            
             <rect class="box" x="20" y="25" width="650" height="30" fill="{accent}" fill-opacity="0.05" stroke-opacity="0"/>
             <text class="mono-small" x="30" y="45">&gt; Spearheading the implementation of generative AI architectures for major clients.</text>
         </g>
@@ -159,6 +161,7 @@ def generate_stack(is_dark):
 def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     grid = "#30363d" if is_dark else "#e1e4e8"
+    bg = "#0d1117" if is_dark else "#ffffff"
     content = f"""
     <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">04 — ecosystem</text>
@@ -171,7 +174,8 @@ def generate_projects(is_dark):
         
         <!-- Live Project Focus -->
         <g transform="translate(0, 40)">
-            <rect class="box" x="0" y="0" width="360" height="85" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
             <circle cx="20" cy="25" r="5" fill="#238636">
                 <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
             </circle>
@@ -214,10 +218,13 @@ def generate_projects(is_dark):
         
         <g transform="translate(380, 240)">
             <rect class="box" x="0" y="0" width="360" height="85"/>
-            <circle cx="20" cy="25" r="4" fill="{accent}"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan></text>
+            <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+            <circle cx="20" cy="25" r="5" fill="#238636">
+                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
             <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
-            <text class="mono-small" x="35" y="70">Stack: Angular / TypeScript</text>
+            <text class="mono-small" x="35" y="70" fill="#238636">profile-site-2-0.onrender.com</text>
         </g>
 
     </g>

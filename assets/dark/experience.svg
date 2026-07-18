@@ -21,7 +21,7 @@
         .accent { fill: #58a6ff; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-        .box { fill: none; stroke: #30363d; stroke-width: 1; rx: 6px; }
+        .box { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 6px; }
     </style>
     
     <g transform="translate(30, 40)">
@@ -40,6 +40,7 @@
             </circle>
             <text class="mono accent" x="25" y="-5">Data / AI Engineer @ ICRA Analytics - Fintellix</text>
             <text class="mono-small" x="25" y="15">1+ Years • Building Enterprise AI Systems • LLMs • RAG Models</text>
+            
             <rect class="box" x="20" y="25" width="650" height="30" fill="#58a6ff" fill-opacity="0.05" stroke-opacity="0"/>
             <text class="mono-small" x="30" y="45">&gt; Spearheading the implementation of generative AI architectures for major clients.</text>
         </g>
