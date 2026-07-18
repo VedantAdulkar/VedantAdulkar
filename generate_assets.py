@@ -30,18 +30,34 @@ def create_svg(filename, width, height, is_dark, content):
         .highlight {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {accent_color}; }}
         .text {{ font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
         .box {{ fill: {bg_color}; stroke: {grid_color}; stroke-width: 1; rx: 6px; }}
-        
-        @keyframes fadeIn {{
-            0% {{ opacity: 0; transform: translateY(5px); }}
-            100% {{ opacity: 1; transform: translateY(0); }}
-        }}
-        .animate-fade {{ animation: fadeIn 0.8s ease-out forwards; opacity: 0; }}
-        .delay-1 {{ animation-delay: 0.2s; }}
-        .delay-2 {{ animation-delay: 0.4s; }}
-        .delay-3 {{ animation-delay: 0.6s; }}
     </style>
     {content}
     <rect width="{width}" height="{height}" fill="none" stroke="{grid_color}" stroke-width="2" rx="8" />
+</svg>"""
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(svg)
+
+def create_card_svg(filename, width, height, is_dark, content, is_live=False):
+    bg_color = "#0d1117" if is_dark else "#ffffff"
+    text_color = "#c9d1d9" if is_dark else "#24292f"
+    accent_color = "#58a6ff" if is_dark else "#0969da"
+    grid_color = "#30363d" if is_dark else "#e1e4e8"
+    
+    border_color = "#238636" if is_live else grid_color
+    border_width = "2" if is_live else "1"
+    
+    live_bg = f'<rect width="{width}" height="{height}" fill="#238636" fill-opacity="0.05" rx="8" />' if is_live else ""
+    
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+    <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
+    {live_bg}
+    <style>
+        .mono {{ font: 400 14px 'Fira Code', 'Courier New', monospace; fill: {text_color}; }}
+        .mono-small {{ font: 400 12px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
+        .accent {{ fill: {accent_color}; font-weight: 600; }}
+    </style>
+    {content}
+    <rect width="{width}" height="{height}" fill="none" stroke="{border_color}" stroke-width="{border_width}" rx="8" />
 </svg>"""
     with open(filename, "w", encoding="utf-8") as f:
         f.write(svg)
@@ -50,17 +66,15 @@ def generate_header(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
-    <g transform="translate(50, 50)" class="animate-fade">
+    <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
         <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
         <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
         <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         
         <!-- Live Links Section -->
-        <g transform="translate(0, 115)" class="animate-fade delay-1">
-            <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636">
-                <animate attributeName="stroke-width" values="1;2;1" dur="2s" repeatCount="indefinite" />
-            </rect>
+        <g transform="translate(0, 115)">
+            <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
             <circle cx="15" cy="-5" r="4" fill="#238636">
                 <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
             </circle>
@@ -75,11 +89,11 @@ def generate_header(is_dark):
 def generate_whoami(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
-    <g transform="translate(30, 40)" class="animate-fade">
+    <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">01 — whoami</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
-        <g transform="translate(20, 50)" class="animate-fade delay-1">
+        <g transform="translate(20, 50)">
             <rect class="box" x="0" y="0" width="700" height="145" />
             <circle cx="20" cy="20" r="5" fill="#ff5f56"/>
             <circle cx="40" cy="20" r="5" fill="#ffbd2e"/>
@@ -100,7 +114,7 @@ def generate_experience(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     grid = "#30363d" if is_dark else "#e1e4e8"
     content = f"""
-    <g transform="translate(30, 40)" class="animate-fade">
+    <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">02 — telemetry_&amp;_timeline</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
@@ -110,7 +124,7 @@ def generate_experience(is_dark):
         </line>
         
         <!-- ICRA Analytics -->
-        <g transform="translate(40, 80)" class="animate-fade delay-1">
+        <g transform="translate(40, 80)">
             <circle cx="0" cy="0" r="6" fill="{accent}" />
             <circle cx="0" cy="0" r="10" fill="none" stroke="{accent}" stroke-width="1.5">
                 <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite"/>
@@ -124,7 +138,7 @@ def generate_experience(is_dark):
         </g>
 
         <!-- Earlier Work / Evolution -->
-        <g transform="translate(40, 180)" class="animate-fade delay-2">
+        <g transform="translate(40, 180)">
             <circle cx="0" cy="0" r="5" fill="{grid}" />
             <text class="mono" x="25" y="-5" fill="{grid}">Project Evolution &amp; Foundation</text>
             <text class="mono-small" x="25" y="15">Developed multiple AI pipelines including DocQ summarizer &amp; autonomous drones.</text>
@@ -139,14 +153,14 @@ def generate_experience(is_dark):
 def generate_stack(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
-    <g transform="translate(30, 40)" class="animate-fade">
+    <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">03 — technical_stack</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
         <g transform="translate(0, 40)">
             <!-- Column 1 -->
-            <rect class="box animate-fade delay-1" x="0" y="0" width="230" height="120"/>
-            <g class="animate-fade delay-1">
+            <rect class="box" x="0" y="0" width="230" height="120"/>
+            <g>
                 <text class="mono accent" x="15" y="25">AI &amp; Models</text>
                 <text class="mono" x="15" y="50">LLMs • RAG</text>
                 <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
@@ -155,8 +169,8 @@ def generate_stack(is_dark):
             </g>
 
             <!-- Column 2 -->
-            <rect class="box animate-fade delay-2" x="250" y="0" width="230" height="120"/>
-            <g class="animate-fade delay-2">
+            <rect class="box" x="250" y="0" width="230" height="120"/>
+            <g>
                 <text class="mono accent" x="265" y="25">Core Engineering</text>
                 <text class="mono" x="265" y="50">Python • SQL</text>
                 <text class="mono" x="265" y="70">FastAPI • Flask</text>
@@ -165,8 +179,8 @@ def generate_stack(is_dark):
             </g>
 
             <!-- Column 3 -->
-            <rect class="box animate-fade delay-3" x="500" y="0" width="240" height="120"/>
-            <g class="animate-fade delay-3">
+            <rect class="box" x="500" y="0" width="240" height="120"/>
+            <g>
                 <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
                 <text class="mono" x="515" y="50">AWS • Docker</text>
                 <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
@@ -181,12 +195,10 @@ def generate_stack(is_dark):
 
 def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
-    grid = "#30363d" if is_dark else "#e1e4e8"
-    bg = "#0d1117" if is_dark else "#ffffff"
     
-    # 1. Projects Header
+    # 1. Projects Header (No outer border/background)
     header_content = f"""
-    <g transform="translate(30, 40)" class="animate-fade">
+    <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">04 — ecosystem</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
     </g>
@@ -194,82 +206,64 @@ def generate_projects(is_dark):
     path_header = "assets/dark/projects_header.svg" if is_dark else "assets/projects_header.svg"
     create_svg(path_header, 800, 80, is_dark, header_content)
 
-    # 2. Individual Projects for Grid (Width 390 to fit side-by-side)
-    # Project 1: KnowAI
+    # 2. Individual Projects as Cards
     p1 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-1">
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="{bg}" stroke="#238636" stroke-width="1.5">
-            <animate attributeName="stroke-width" values="1.5;3;1.5" dur="2s" repeatCount="indefinite" />
-        </rect>
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" />
-        <circle cx="20" cy="25" r="5" fill="#238636">
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="5" fill="#238636">
             <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
-        <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
-        <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
-        <text class="mono-small" x="35" y="70" fill="#238636">know-ai-news.vercel.app</text>
+        <text class="mono" x="30" y="20"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
+        <text class="mono-small" x="30" y="45">AI Knowledge Assistant integrating LLMs.</text>
+        <text class="mono-small" x="30" y="65" fill="#238636">know-ai-news.vercel.app</text>
     </g>"""
-    create_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 390, 115, is_dark, p1)
+    create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 380, 95, is_dark, p1, is_live=True)
 
-    # Project 2: DocQ
     p2 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-1">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <circle cx="20" cy="25" r="4" fill="{accent}"/>
-        <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
-        <text class="mono-small" x="35" y="50">All format summarizer (Image/PDF/Video) via AI.</text>
-        <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="4" fill="{accent}"/>
+        <text class="mono" x="30" y="20"><tspan class="accent">DocQ</tspan></text>
+        <text class="mono-small" x="30" y="45">All format summarizer (Image/PDF/Video) via AI.</text>
+        <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 390, 115, is_dark, p2)
+    create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 380, 95, is_dark, p2)
 
-    # Project 3: Drone GCS
     p3 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-2">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <circle cx="20" cy="25" r="4" fill="{accent}"/>
-        <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone GCS</tspan></text>
-        <text class="mono-small" x="35" y="50">Ground Control System for Pixhawk/RaspberryPi drones.</text>
-        <text class="mono-small" x="35" y="70">Stack: Python / OpenCV</text>
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="4" fill="{accent}"/>
+        <text class="mono" x="30" y="20"><tspan class="accent">Autonomous Drone GCS</tspan></text>
+        <text class="mono-small" x="30" y="45">Ground Control System for Pixhawk drones.</text>
+        <text class="mono-small" x="30" y="65">Stack: Python / OpenCV</text>
     </g>"""
-    create_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 390, 115, is_dark, p3)
+    create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 380, 95, is_dark, p3)
 
-    # Project 4: Voice Assistant
     p4 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-2">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <circle cx="20" cy="25" r="4" fill="{accent}"/>
-        <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
-        <text class="mono-small" x="35" y="50">Intelligent agent via Google Speech &amp; OpenAI API.</text>
-        <text class="mono-small" x="35" y="70">Stack: Python / APIs</text>
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="4" fill="{accent}"/>
+        <text class="mono" x="30" y="20"><tspan class="accent">Voice Assistant</tspan></text>
+        <text class="mono-small" x="30" y="45">Intelligent agent via Google Speech &amp; OpenAI API.</text>
+        <text class="mono-small" x="30" y="65">Stack: Python / APIs</text>
     </g>"""
-    create_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 390, 115, is_dark, p4)
+    create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 380, 95, is_dark, p4)
 
-    # Project 5: Recipe Recommender
     p5 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-3">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <circle cx="20" cy="25" r="4" fill="{accent}"/>
-        <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
-        <text class="mono-small" x="35" y="50">Suggests recipes based on available ingredients.</text>
-        <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="4" fill="{accent}"/>
+        <text class="mono" x="30" y="20"><tspan class="accent">Recipe Recommender</tspan></text>
+        <text class="mono-small" x="30" y="45">Suggests recipes based on available ingredients.</text>
+        <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 390, 115, is_dark, p5)
+    create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 380, 95, is_dark, p5)
 
-    # Project 6: Profile-site
     p6 = f"""
-    <g transform="translate(15, 15)" class="animate-fade delay-3">
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="{bg}" stroke="#238636" stroke-width="1.5">
-            <animate attributeName="stroke-width" values="1.5;3;1.5" dur="2s" repeatCount="indefinite" />
-        </rect>
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" />
-        <circle cx="20" cy="25" r="5" fill="#238636">
+    <g transform="translate(15, 15)">
+        <circle cx="15" cy="15" r="5" fill="#238636">
             <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
-        <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
-        <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
-        <text class="mono-small" x="35" y="70" fill="#238636">profile-site-2-0.onrender.com</text>
+        <text class="mono" x="30" y="20"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
+        <text class="mono-small" x="30" y="45">Personal developer portfolio web application.</text>
+        <text class="mono-small" x="30" y="65" fill="#238636">profile-site-2-0.onrender.com</text>
     </g>"""
-    create_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 390, 115, is_dark, p6)
+    create_card_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 380, 95, is_dark, p6, is_live=True)
 
 
 def main():

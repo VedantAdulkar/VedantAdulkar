@@ -22,29 +22,18 @@
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
         .box { fill: #ffffff; stroke: #e1e4e8; stroke-width: 1; rx: 6px; }
-        
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(5px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
     </style>
     
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
-    <g transform="translate(50, 50)" class="animate-fade">
+    <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
         <text class="mono" x="0" y="30">&gt; <tspan fill="#0969da">sys.role</tspan> = "Data / AI Engineer"</text>
         <text class="mono" x="0" y="55">&gt; <tspan fill="#0969da">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
         <text class="mono" x="0" y="80">&gt; <tspan fill="#0969da">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="#0969da"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         
         <!-- Live Links Section -->
-        <g transform="translate(0, 115)" class="animate-fade delay-1">
-            <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636">
-                <animate attributeName="stroke-width" values="1;2;1" dur="2s" repeatCount="indefinite" />
-            </rect>
+        <g transform="translate(0, 115)">
+            <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
             <circle cx="15" cy="-5" r="4" fill="#238636">
                 <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
             </circle>

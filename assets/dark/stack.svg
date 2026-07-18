@@ -22,25 +22,16 @@
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
         .box { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 6px; }
-        
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(5px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
     </style>
     
-    <g transform="translate(30, 40)" class="animate-fade">
+    <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">03 — technical_stack</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
         
         <g transform="translate(0, 40)">
             <!-- Column 1 -->
-            <rect class="box animate-fade delay-1" x="0" y="0" width="230" height="120"/>
-            <g class="animate-fade delay-1">
+            <rect class="box" x="0" y="0" width="230" height="120"/>
+            <g>
                 <text class="mono accent" x="15" y="25">AI &amp; Models</text>
                 <text class="mono" x="15" y="50">LLMs • RAG</text>
                 <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
@@ -49,8 +40,8 @@
             </g>
 
             <!-- Column 2 -->
-            <rect class="box animate-fade delay-2" x="250" y="0" width="230" height="120"/>
-            <g class="animate-fade delay-2">
+            <rect class="box" x="250" y="0" width="230" height="120"/>
+            <g>
                 <text class="mono accent" x="265" y="25">Core Engineering</text>
                 <text class="mono" x="265" y="50">Python • SQL</text>
                 <text class="mono" x="265" y="70">FastAPI • Flask</text>
@@ -59,8 +50,8 @@
             </g>
 
             <!-- Column 3 -->
-            <rect class="box animate-fade delay-3" x="500" y="0" width="240" height="120"/>
-            <g class="animate-fade delay-3">
+            <rect class="box" x="500" y="0" width="240" height="120"/>
+            <g>
                 <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
                 <text class="mono" x="515" y="50">AWS • Docker</text>
                 <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
