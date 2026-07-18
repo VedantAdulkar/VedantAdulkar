@@ -33,6 +33,21 @@ def create_svg(filename, width, height, is_dark, content):
                 <animate attributeName="width" from="0" to="{width}" dur="1s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
+        <clipPath id="type4">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="2.5s" fill="freeze" />
+            </rect>
+        </clipPath>
+        <clipPath id="type5">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="3.3s" fill="freeze" />
+            </rect>
+        </clipPath>
+        <clipPath id="type6">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="4.1s" fill="freeze" />
+            </rect>
+        </clipPath>
     </defs>
     <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
     <rect width="{width}" height="{height}" fill="url(#grid)" rx="8" />
@@ -144,19 +159,10 @@ def generate_whoami(is_dark):
             <!-- Typewriter effect for command starts at 1.5s -->
             <text class="mono" x="20" y="65" clip-path="url(#type2)"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
             
-            <!-- Output spits out sequentially after command (2.5s) -->
-            <g opacity="0">
-                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.5s" fill="freeze" />
-                <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
-            </g>
-            <g opacity="0">
-                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.7s" fill="freeze" />
-                <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
-            </g>
-            <g opacity="0">
-                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.9s" fill="freeze" />
-                <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
-            </g>
+            <!-- Output types out sequentially after command (2.5s) -->
+            <text class="mono" x="20" y="90" clip-path="url(#type4)">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+            <text class="mono" x="20" y="115" clip-path="url(#type5)">Architecting scalable AI infrastructure and delivering robust</text>
+            <text class="mono" x="20" y="140" clip-path="url(#type6)">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         </g>
     </g>
     """
