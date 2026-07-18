@@ -10,14 +10,19 @@
             <stop offset="0%" style="stop-color:#0969da;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
         </linearGradient>
-        <clipPath id="typing">
+        <clipPath id="type1">
             <rect x="0" y="0" width="0" height="220">
-                <animate attributeName="width" from="0" to="800" dur="2s" begin="1.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="800" dur="0.8s" begin="0.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="typingFast">
+        <clipPath id="type2">
             <rect x="0" y="0" width="0" height="220">
-                <animate attributeName="width" from="0" to="800" dur="1s" begin="0.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="800" dur="0.8s" begin="1.5s" fill="freeze" />
+            </rect>
+        </clipPath>
+        <clipPath id="type3">
+            <rect x="0" y="0" width="0" height="220">
+                <animate attributeName="width" from="0" to="800" dur="1s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
     </defs>

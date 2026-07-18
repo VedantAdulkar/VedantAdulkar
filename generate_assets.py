@@ -18,14 +18,19 @@ def create_svg(filename, width, height, is_dark, content):
             <stop offset="0%" style="stop-color:{accent_color};stop-opacity:1" />
             <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
         </linearGradient>
-        <clipPath id="typing">
+        <clipPath id="type1">
             <rect x="0" y="0" width="0" height="{height}">
-                <animate attributeName="width" from="0" to="{width}" dur="2s" begin="1.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="0.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="typingFast">
+        <clipPath id="type2">
             <rect x="0" y="0" width="0" height="{height}">
-                <animate attributeName="width" from="0" to="{width}" dur="1s" begin="0.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="1.5s" fill="freeze" />
+            </rect>
+        </clipPath>
+        <clipPath id="type3">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="1s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
     </defs>
@@ -102,16 +107,14 @@ def generate_header(is_dark):
 
     <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
-        <g clip-path="url(#typingFast)">
-            <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
-            <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
-            <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
-        </g>
+        <text class="mono" x="0" y="30" clip-path="url(#type1)">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
+        <text class="mono" x="0" y="55" clip-path="url(#type2)">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+        <text class="mono" x="0" y="80" clip-path="url(#type3)">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         
-        <!-- Live Links Section popping up at 2.5s -->
+        <!-- Live Links Section popping up at 3.5s -->
         <g transform="translate(0, 115)" opacity="0">
-            <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.5s" fill="freeze" />
-            <animateTransform attributeName="transform" type="translate" from="0 125" to="0 115" dur="0.5s" begin="2.5s" fill="freeze" />
+            <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="3.5s" fill="freeze" />
+            <animateTransform attributeName="transform" type="translate" from="0 125" to="0 115" dur="0.5s" begin="3.5s" fill="freeze" />
             <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
             <circle cx="15" cy="-5" r="4" fill="#238636">
                 <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
@@ -138,11 +141,20 @@ def generate_whoami(is_dark):
             <circle cx="60" cy="20" r="5" fill="#27c93f"/>
             <line x1="0" y1="40" x2="700" y2="40" stroke="#30363d" stroke-width="1"/>
             
-            <!-- Typewriter effect starts at 1.5s -->
-            <g clip-path="url(#typing)">
-                <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            <!-- Typewriter effect for command starts at 1.5s -->
+            <text class="mono" x="20" y="65" clip-path="url(#type2)"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            
+            <!-- Output spits out sequentially after command (2.5s) -->
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.5s" fill="freeze" />
                 <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+            </g>
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.7s" fill="freeze" />
                 <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
+            </g>
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="2.9s" fill="freeze" />
                 <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
             </g>
         </g>
