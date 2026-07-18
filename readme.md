@@ -9,7 +9,7 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/experience.svg"/><img src="assets/experience.svg" alt="Telemetry and Timeline"/></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack.svg"/><img src="assets/stack.svg" alt="Technical stack"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/stack.svg?v=1"/><img src="assets/stack.svg?v=1" alt="Technical stack"/></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/projects_header.svg"/><img src="assets/projects_header.svg" alt="Project ecosystem"/></picture>
 
