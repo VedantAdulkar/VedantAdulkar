@@ -1,17 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="380" height="95" viewBox="0 0 380 95">
-    <rect width="380" height="95" fill="#ffffff" rx="8" />
-    
-    <style>
-        .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #24292f; }
-        .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.6; }
-        .accent { fill: #0969da; font-weight: 600; }
-    </style>
-    
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="95" viewBox="0 0 400 95">
+    <g opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="5.9s" fill="freeze" />
+        <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.6s" begin="5.9s" fill="freeze" />
+        <rect width="400" height="95" fill="#ffffff" rx="8" />
+        
+        <style>
+            .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #24292f; }
+            .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.6; }
+            .accent { fill: #0969da; font-weight: 600; }
+        </style>
+        
     <g transform="translate(15, 15)">
         <circle cx="15" cy="15" r="4" fill="#0969da"/>
         <text class="mono" x="30" y="20"><tspan class="accent">Recipe Recommender</tspan></text>
         <text class="mono-small" x="30" y="45">Suggests recipes based on available ingredients.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>
-    <rect width="380" height="95" fill="none" stroke="#e1e4e8" stroke-width="1" rx="8" />
+        <rect width="400" height="95" fill="none" stroke="#e1e4e8" stroke-width="1" rx="8" />
+    </g>
 </svg>

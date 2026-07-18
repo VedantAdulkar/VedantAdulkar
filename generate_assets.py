@@ -18,6 +18,16 @@ def create_svg(filename, width, height, is_dark, content):
             <stop offset="0%" style="stop-color:{accent_color};stop-opacity:1" />
             <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
         </linearGradient>
+        <clipPath id="typing">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="2s" begin="1.5s" fill="freeze" />
+            </rect>
+        </clipPath>
+        <clipPath id="typingFast">
+            <rect x="0" y="0" width="0" height="{height}">
+                <animate attributeName="width" from="0" to="{width}" dur="1s" begin="0.5s" fill="freeze" />
+            </rect>
+        </clipPath>
     </defs>
     <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
     <rect width="{width}" height="{height}" fill="url(#grid)" rx="8" />
@@ -37,7 +47,7 @@ def create_svg(filename, width, height, is_dark, content):
     with open(filename, "w", encoding="utf-8") as f:
         f.write(svg)
 
-def create_card_svg(filename, width, height, is_dark, content, is_live=False):
+def create_card_svg(filename, width, height, is_dark, content, is_live=False, delay="3.5s"):
     bg_color = "#0d1117" if is_dark else "#ffffff"
     text_color = "#c9d1d9" if is_dark else "#24292f"
     accent_color = "#58a6ff" if is_dark else "#0969da"
@@ -48,16 +58,21 @@ def create_card_svg(filename, width, height, is_dark, content, is_live=False):
     
     live_bg = f'<rect width="{width}" height="{height}" fill="#238636" fill-opacity="0.05" rx="8" />' if is_live else ""
     
+    # Adding a pop-up animation wrapper for the cards based on delay
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
-    <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
-    {live_bg}
-    <style>
-        .mono {{ font: 400 14px 'Fira Code', 'Courier New', monospace; fill: {text_color}; }}
-        .mono-small {{ font: 400 12px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
-        .accent {{ fill: {accent_color}; font-weight: 600; }}
-    </style>
-    {content}
-    <rect width="{width}" height="{height}" fill="none" stroke="{border_color}" stroke-width="{border_width}" rx="8" />
+    <g opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="{delay}" fill="freeze" />
+        <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.6s" begin="{delay}" fill="freeze" />
+        <rect width="{width}" height="{height}" fill="{bg_color}" rx="8" />
+        {live_bg}
+        <style>
+            .mono {{ font: 400 14px 'Fira Code', 'Courier New', monospace; fill: {text_color}; }}
+            .mono-small {{ font: 400 12px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
+            .accent {{ fill: {accent_color}; font-weight: 600; }}
+        </style>
+        {content}
+        <rect width="{width}" height="{height}" fill="none" stroke="{border_color}" stroke-width="{border_width}" rx="8" />
+    </g>
 </svg>"""
     with open(filename, "w", encoding="utf-8") as f:
         f.write(svg)
@@ -66,14 +81,25 @@ def generate_header(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
+    
+    <!-- Laser Sweeper Animation -->
+    <line x1="0" y1="0" x2="800" y2="0" stroke="{accent}" stroke-width="2" opacity="0.2">
+        <animate attributeName="y1" values="0; 200; 0" dur="4s" repeatCount="indefinite" />
+        <animate attributeName="y2" values="0; 200; 0" dur="4s" repeatCount="indefinite" />
+    </line>
+
     <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
-        <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
-        <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
-        <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        <g clip-path="url(#typingFast)">
+            <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
+            <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+            <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        </g>
         
-        <!-- Live Links Section -->
-        <g transform="translate(0, 115)">
+        <!-- Live Links Section popping up at 2.5s -->
+        <g transform="translate(0, 115)" opacity="0">
+            <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.5s" fill="freeze" />
+            <animateTransform attributeName="transform" type="translate" from="0 125" to="0 115" dur="0.5s" begin="2.5s" fill="freeze" />
             <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
             <circle cx="15" cy="-5" r="4" fill="#238636">
                 <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
@@ -100,10 +126,13 @@ def generate_whoami(is_dark):
             <circle cx="60" cy="20" r="5" fill="#27c93f"/>
             <line x1="0" y1="40" x2="700" y2="40" stroke="#30363d" stroke-width="1"/>
             
-            <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
-            <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
-            <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
-            <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+            <!-- Typewriter effect starts at 1.5s -->
+            <g clip-path="url(#typing)">
+                <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+                <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+                <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
+                <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+            </g>
         </g>
     </g>
     """
@@ -123,8 +152,10 @@ def generate_experience(is_dark):
             <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite" />
         </line>
         
-        <!-- ICRA Analytics -->
-        <g transform="translate(40, 80)">
+        <!-- ICRA Analytics pops up at 3.5s -->
+        <g transform="translate(40, 80)" opacity="0">
+            <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="3.5s" fill="freeze" />
+            <animateTransform attributeName="transform" type="translate" from="40 90" to="40 80" dur="0.5s" begin="3.5s" fill="freeze" />
             <circle cx="0" cy="0" r="6" fill="{accent}" />
             <circle cx="0" cy="0" r="10" fill="none" stroke="{accent}" stroke-width="1.5">
                 <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite"/>
@@ -137,8 +168,10 @@ def generate_experience(is_dark):
             <text class="mono-small" x="30" y="45">&gt; Spearheading the implementation of generative AI architectures for major clients.</text>
         </g>
 
-        <!-- Earlier Work / Evolution -->
-        <g transform="translate(40, 180)">
+        <!-- Earlier Work / Evolution pops up at 4.2s -->
+        <g transform="translate(40, 180)" opacity="0">
+            <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="4.2s" fill="freeze" />
+            <animateTransform attributeName="transform" type="translate" from="40 190" to="40 180" dur="0.5s" begin="4.2s" fill="freeze" />
             <circle cx="0" cy="0" r="5" fill="{grid}" />
             <text class="mono" x="25" y="-5" fill="{grid}">Project Evolution &amp; Foundation</text>
             <text class="mono-small" x="25" y="15">Developed multiple AI pipelines including DocQ summarizer &amp; autonomous drones.</text>
@@ -158,34 +191,46 @@ def generate_stack(is_dark):
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
         <g transform="translate(0, 40)">
-            <!-- Column 1 -->
-            <rect class="box" x="0" y="0" width="230" height="120"/>
-            <g>
-                <text class="mono accent" x="15" y="25">AI &amp; Models</text>
-                <text class="mono" x="15" y="50">LLMs • RAG</text>
-                <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
-                <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
-                <text class="mono" x="15" y="110">OpenAI API</text>
+            <!-- Column 1 pops up at 4.5s -->
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="4.5s" fill="freeze" />
+                <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.5s" begin="4.5s" fill="freeze" />
+                <rect class="box" x="0" y="0" width="230" height="120"/>
+                <g>
+                    <text class="mono accent" x="15" y="25">AI &amp; Models</text>
+                    <text class="mono" x="15" y="50">LLMs • RAG</text>
+                    <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
+                    <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
+                    <text class="mono" x="15" y="110">OpenAI API</text>
+                </g>
             </g>
 
-            <!-- Column 2 -->
-            <rect class="box" x="250" y="0" width="230" height="120"/>
-            <g>
-                <text class="mono accent" x="265" y="25">Core Engineering</text>
-                <text class="mono" x="265" y="50">Python • SQL</text>
-                <text class="mono" x="265" y="70">FastAPI • Flask</text>
-                <text class="mono" x="265" y="90">LangChain • LlamaIndex</text>
-                <text class="mono" x="265" y="110">Vector Databases</text>
+            <!-- Column 2 pops up at 4.8s -->
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="4.8s" fill="freeze" />
+                <animateTransform attributeName="transform" type="translate" from="250 10" to="250 0" dur="0.5s" begin="4.8s" fill="freeze" />
+                <rect class="box" x="0" y="0" width="230" height="120"/>
+                <g>
+                    <text class="mono accent" x="15" y="25">Core Engineering</text>
+                    <text class="mono" x="15" y="50">Python • SQL</text>
+                    <text class="mono" x="15" y="70">FastAPI • Flask</text>
+                    <text class="mono" x="15" y="90">LangChain • LlamaIndex</text>
+                    <text class="mono" x="15" y="110">Vector Databases</text>
+                </g>
             </g>
 
-            <!-- Column 3 -->
-            <rect class="box" x="500" y="0" width="240" height="120"/>
-            <g>
-                <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
-                <text class="mono" x="515" y="50">AWS • Docker</text>
-                <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
-                <text class="mono" x="515" y="90">Git • CI/CD Pipelines</text>
-                <text class="mono" x="515" y="110">Data Engineering</text>
+            <!-- Column 3 pops up at 5.1s -->
+            <g opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="5.1s" fill="freeze" />
+                <animateTransform attributeName="transform" type="translate" from="500 10" to="500 0" dur="0.5s" begin="5.1s" fill="freeze" />
+                <rect class="box" x="0" y="0" width="240" height="120"/>
+                <g>
+                    <text class="mono accent" x="15" y="25">Data &amp; Cloud</text>
+                    <text class="mono" x="15" y="50">AWS • Docker</text>
+                    <text class="mono" x="15" y="70">PostgreSQL • MongoDB</text>
+                    <text class="mono" x="15" y="90">Git • CI/CD Pipelines</text>
+                    <text class="mono" x="15" y="110">Data Engineering</text>
+                </g>
             </g>
         </g>
     </g>
@@ -195,8 +240,9 @@ def generate_stack(is_dark):
 
 def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
+    bg = "#0d1117" if is_dark else "#ffffff"
     
-    # 1. Projects Header (No outer border/background)
+    # 1. Projects Header
     header_content = f"""
     <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">04 — ecosystem</text>
@@ -206,7 +252,8 @@ def generate_projects(is_dark):
     path_header = "assets/dark/projects_header.svg" if is_dark else "assets/projects_header.svg"
     create_svg(path_header, 800, 80, is_dark, header_content)
 
-    # 2. Individual Projects as Cards
+    # 2. Individual Projects as Cards (Width increased to 400px to fix padding)
+    # They pop up starting around 5.5s
     p1 = f"""
     <g transform="translate(15, 15)">
         <circle cx="15" cy="15" r="5" fill="#238636">
@@ -216,7 +263,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">AI Knowledge Assistant integrating LLMs.</text>
         <text class="mono-small" x="30" y="65" fill="#238636">know-ai-news.vercel.app</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 380, 95, is_dark, p1, is_live=True)
+    create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 400, 95, is_dark, p1, is_live=True, delay="5.5s")
 
     p2 = f"""
     <g transform="translate(15, 15)">
@@ -225,7 +272,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">All format summarizer (Image/PDF/Video) via AI.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 380, 95, is_dark, p2)
+    create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 400, 95, is_dark, p2, delay="5.6s")
 
     p3 = f"""
     <g transform="translate(15, 15)">
@@ -234,7 +281,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Ground Control System for Pixhawk drones.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / OpenCV</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 380, 95, is_dark, p3)
+    create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 400, 95, is_dark, p3, delay="5.7s")
 
     p4 = f"""
     <g transform="translate(15, 15)">
@@ -243,7 +290,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Intelligent agent via Google Speech &amp; OpenAI API.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / APIs</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 380, 95, is_dark, p4)
+    create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 400, 95, is_dark, p4, delay="5.8s")
 
     p5 = f"""
     <g transform="translate(15, 15)">
@@ -252,7 +299,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Suggests recipes based on available ingredients.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 380, 95, is_dark, p5)
+    create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 400, 95, is_dark, p5, delay="5.9s")
 
     p6 = f"""
     <g transform="translate(15, 15)">
@@ -263,7 +310,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Personal developer portfolio web application.</text>
         <text class="mono-small" x="30" y="65" fill="#238636">profile-site-2-0.onrender.com</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 380, 95, is_dark, p6, is_live=True)
+    create_card_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 400, 95, is_dark, p6, is_live=True, delay="6.0s")
 
 
 def main():
