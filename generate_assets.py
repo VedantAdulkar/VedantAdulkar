@@ -33,19 +33,19 @@ def create_svg(filename, width, height, is_dark, content):
                 <animate attributeName="width" from="0" to="{width}" dur="1s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type4">
+        <clipPath id="pop1">
             <rect x="0" y="0" width="0" height="{height}">
-                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="2.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="{width}" dur="0.01s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type5">
+        <clipPath id="pop2">
             <rect x="0" y="0" width="0" height="{height}">
-                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="3.3s" fill="freeze" />
+                <animate attributeName="width" from="0" to="{width}" dur="0.01s" begin="2.7s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type6">
+        <clipPath id="pop3">
             <rect x="0" y="0" width="0" height="{height}">
-                <animate attributeName="width" from="0" to="{width}" dur="0.8s" begin="4.1s" fill="freeze" />
+                <animate attributeName="width" from="0" to="{width}" dur="0.01s" begin="2.9s" fill="freeze" />
             </rect>
         </clipPath>
     </defs>
@@ -122,9 +122,15 @@ def generate_header(is_dark):
 
     <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
-        <text class="mono" x="0" y="30" clip-path="url(#type1)">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
-        <text class="mono" x="0" y="55" clip-path="url(#type2)">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
-        <text class="mono" x="0" y="80" clip-path="url(#type3)">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        <g clip-path="url(#type1)">
+            <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
+        </g>
+        <g clip-path="url(#type2)">
+            <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+        </g>
+        <g clip-path="url(#type3)">
+            <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        </g>
         
         <!-- Live Links Section popping up at 3.5s -->
         <g transform="translate(0, 115)" opacity="0">
@@ -157,12 +163,20 @@ def generate_whoami(is_dark):
             <line x1="0" y1="40" x2="700" y2="40" stroke="#30363d" stroke-width="1"/>
             
             <!-- Typewriter effect for command starts at 1.5s -->
-            <text class="mono" x="20" y="65" clip-path="url(#type2)"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            <g clip-path="url(#type2)">
+                <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
+            </g>
             
-            <!-- Output types out sequentially after command (2.5s) -->
-            <text class="mono" x="20" y="90" clip-path="url(#type4)">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
-            <text class="mono" x="20" y="115" clip-path="url(#type5)">Architecting scalable AI infrastructure and delivering robust</text>
-            <text class="mono" x="20" y="140" clip-path="url(#type6)">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+            <!-- Output pops out instantly and sequentially after command (2.5s) -->
+            <g clip-path="url(#pop1)">
+                <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
+            </g>
+            <g clip-path="url(#pop2)">
+                <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
+            </g>
+            <g clip-path="url(#pop3)">
+                <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+            </g>
         </g>
     </g>
     """

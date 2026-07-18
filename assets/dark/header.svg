@@ -25,19 +25,19 @@
                 <animate attributeName="width" from="0" to="800" dur="1s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type4">
+        <clipPath id="pop1">
             <rect x="0" y="0" width="0" height="200">
-                <animate attributeName="width" from="0" to="800" dur="0.8s" begin="2.5s" fill="freeze" />
+                <animate attributeName="width" from="0" to="800" dur="0.01s" begin="2.5s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type5">
+        <clipPath id="pop2">
             <rect x="0" y="0" width="0" height="200">
-                <animate attributeName="width" from="0" to="800" dur="0.8s" begin="3.3s" fill="freeze" />
+                <animate attributeName="width" from="0" to="800" dur="0.01s" begin="2.7s" fill="freeze" />
             </rect>
         </clipPath>
-        <clipPath id="type6">
+        <clipPath id="pop3">
             <rect x="0" y="0" width="0" height="200">
-                <animate attributeName="width" from="0" to="800" dur="0.8s" begin="4.1s" fill="freeze" />
+                <animate attributeName="width" from="0" to="800" dur="0.01s" begin="2.9s" fill="freeze" />
             </rect>
         </clipPath>
     </defs>
@@ -64,9 +64,15 @@
 
     <g transform="translate(50, 50)">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
-        <text class="mono" x="0" y="30" clip-path="url(#type1)">&gt; <tspan fill="#58a6ff">sys.role</tspan> = "Data / AI Engineer"</text>
-        <text class="mono" x="0" y="55" clip-path="url(#type2)">&gt; <tspan fill="#58a6ff">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
-        <text class="mono" x="0" y="80" clip-path="url(#type3)">&gt; <tspan fill="#58a6ff">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="#58a6ff"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        <g clip-path="url(#type1)">
+            <text class="mono" x="0" y="30">&gt; <tspan fill="#58a6ff">sys.role</tspan> = "Data / AI Engineer"</text>
+        </g>
+        <g clip-path="url(#type2)">
+            <text class="mono" x="0" y="55">&gt; <tspan fill="#58a6ff">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
+        </g>
+        <g clip-path="url(#type3)">
+            <text class="mono" x="0" y="80">&gt; <tspan fill="#58a6ff">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="#58a6ff"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
+        </g>
         
         <!-- Live Links Section popping up at 3.5s -->
         <g transform="translate(0, 115)" opacity="0">
