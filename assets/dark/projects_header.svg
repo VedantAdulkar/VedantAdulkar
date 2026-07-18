@@ -22,9 +22,18 @@
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
         .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
         .box { fill: #0d1117; stroke: #30363d; stroke-width: 1; rx: 6px; }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
     
-    <g transform="translate(30, 40)">
+    <g transform="translate(30, 40)" class="animate-fade">
         <text class="title" x="0" y="0">04 — ecosystem</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
     </g>

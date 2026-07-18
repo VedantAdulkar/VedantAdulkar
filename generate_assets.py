@@ -30,6 +30,15 @@ def create_svg(filename, width, height, is_dark, content):
         .highlight {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {accent_color}; }}
         .text {{ font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: {text_color}; }}
         .box {{ fill: {bg_color}; stroke: {grid_color}; stroke-width: 1; rx: 6px; }}
+        
+        @keyframes fadeIn {{
+            0% {{ opacity: 0; transform: translateY(5px); }}
+            100% {{ opacity: 1; transform: translateY(0); }}
+        }}
+        .animate-fade {{ animation: fadeIn 0.8s ease-out forwards; opacity: 0; }}
+        .delay-1 {{ animation-delay: 0.2s; }}
+        .delay-2 {{ animation-delay: 0.4s; }}
+        .delay-3 {{ animation-delay: 0.6s; }}
     </style>
     {content}
     <rect width="{width}" height="{height}" fill="none" stroke="{grid_color}" stroke-width="2" rx="8" />
@@ -41,16 +50,20 @@ def generate_header(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
     <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
-    <g transform="translate(50, 50)">
+    <g transform="translate(50, 50)" class="animate-fade">
         <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
         <text class="mono" x="0" y="30">&gt; <tspan fill="{accent}">sys.role</tspan> = "Data / AI Engineer"</text>
         <text class="mono" x="0" y="55">&gt; <tspan fill="{accent}">sys.specialty</tspan> = ["LLMs", "RAG", "Enterprise AI Systems"]</text>
-        <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."</text>
+        <text class="mono" x="0" y="80">&gt; <tspan fill="{accent}">sys.status</tspan> = "Infusing intelligent AI technologies for global clients."<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         
         <!-- Live Links Section -->
-        <g transform="translate(0, 115)">
-            <rect class="box" x="0" y="-20" width="375" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
-            <circle cx="15" cy="-5" r="4" fill="#238636" />
+        <g transform="translate(0, 115)" class="animate-fade delay-1">
+            <rect class="box" x="0" y="-20" width="400" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636">
+                <animate attributeName="stroke-width" values="1;2;1" dur="2s" repeatCount="indefinite" />
+            </rect>
+            <circle cx="15" cy="-5" r="4" fill="#238636">
+                <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite" />
+            </circle>
             <text class="mono" x="28" y="0">Live Profile: <tspan class="accent">profile-site-2-0.onrender.com</tspan></text>
         </g>
     </g>
@@ -62,11 +75,11 @@ def generate_header(is_dark):
 def generate_whoami(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
-    <g transform="translate(30, 40)">
+    <g transform="translate(30, 40)" class="animate-fade">
         <text class="title" x="0" y="0">01 — whoami</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
-        <g transform="translate(20, 50)">
+        <g transform="translate(20, 50)" class="animate-fade delay-1">
             <rect class="box" x="0" y="0" width="700" height="145" />
             <circle cx="20" cy="20" r="5" fill="#ff5f56"/>
             <circle cx="40" cy="20" r="5" fill="#ffbd2e"/>
@@ -76,7 +89,7 @@ def generate_whoami(is_dark):
             <text class="mono" x="20" y="65"><tspan class="accent">vedant@core</tspan>:~$ cat professional_summary.log</text>
             <text class="mono" x="20" y="90">Experienced Data/AI Engineer specializing in Large Language Models (LLMs) &amp; RAG.</text>
             <text class="mono" x="20" y="115">Architecting scalable AI infrastructure and delivering robust</text>
-            <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.</text>
+            <text class="mono" x="20" y="140">machine learning solutions for enterprise clients.<tspan fill="{accent}"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />█</tspan></text>
         </g>
     </g>
     """
@@ -87,15 +100,17 @@ def generate_experience(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     grid = "#30363d" if is_dark else "#e1e4e8"
     content = f"""
-    <g transform="translate(30, 40)">
+    <g transform="translate(30, 40)" class="animate-fade">
         <text class="title" x="0" y="0">02 — telemetry_&amp;_timeline</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
         <!-- Timeline Line -->
-        <line x1="40" y1="60" x2="40" y2="280" stroke="{grid}" stroke-width="2" />
+        <line x1="40" y1="60" x2="40" y2="280" stroke="{grid}" stroke-width="2" stroke-dasharray="4,4">
+            <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite" />
+        </line>
         
         <!-- ICRA Analytics -->
-        <g transform="translate(40, 80)">
+        <g transform="translate(40, 80)" class="animate-fade delay-1">
             <circle cx="0" cy="0" r="6" fill="{accent}" />
             <circle cx="0" cy="0" r="10" fill="none" stroke="{accent}" stroke-width="1.5">
                 <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite"/>
@@ -109,7 +124,7 @@ def generate_experience(is_dark):
         </g>
 
         <!-- Earlier Work / Evolution -->
-        <g transform="translate(40, 180)">
+        <g transform="translate(40, 180)" class="animate-fade delay-2">
             <circle cx="0" cy="0" r="5" fill="{grid}" />
             <text class="mono" x="25" y="-5" fill="{grid}">Project Evolution &amp; Foundation</text>
             <text class="mono-small" x="25" y="15">Developed multiple AI pipelines including DocQ summarizer &amp; autonomous drones.</text>
@@ -124,34 +139,40 @@ def generate_experience(is_dark):
 def generate_stack(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     content = f"""
-    <g transform="translate(30, 40)">
+    <g transform="translate(30, 40)" class="animate-fade">
         <text class="title" x="0" y="0">03 — technical_stack</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
         
         <g transform="translate(0, 40)">
             <!-- Column 1 -->
-            <rect class="box" x="0" y="0" width="230" height="120"/>
-            <text class="mono accent" x="15" y="25">AI &amp; Models</text>
-            <text class="mono" x="15" y="50">LLMs • RAG</text>
-            <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
-            <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
-            <text class="mono" x="15" y="110">OpenAI API</text>
+            <rect class="box animate-fade delay-1" x="0" y="0" width="230" height="120"/>
+            <g class="animate-fade delay-1">
+                <text class="mono accent" x="15" y="25">AI &amp; Models</text>
+                <text class="mono" x="15" y="50">LLMs • RAG</text>
+                <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
+                <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
+                <text class="mono" x="15" y="110">OpenAI API</text>
+            </g>
 
             <!-- Column 2 -->
-            <rect class="box" x="250" y="0" width="230" height="120"/>
-            <text class="mono accent" x="265" y="25">Core &amp; Backend</text>
-            <text class="mono" x="265" y="50">Python • Java • C/C++</text>
-            <text class="mono" x="265" y="70">SQL • JDBC</text>
-            <text class="mono" x="265" y="90">Flask • FastAPI</text>
-            <text class="mono" x="265" y="110">JavaScript • Angular</text>
+            <rect class="box animate-fade delay-2" x="250" y="0" width="230" height="120"/>
+            <g class="animate-fade delay-2">
+                <text class="mono accent" x="265" y="25">Core Engineering</text>
+                <text class="mono" x="265" y="50">Python • SQL</text>
+                <text class="mono" x="265" y="70">FastAPI • Flask</text>
+                <text class="mono" x="265" y="90">LangChain • LlamaIndex</text>
+                <text class="mono" x="265" y="110">Vector Databases</text>
+            </g>
 
             <!-- Column 3 -->
-            <rect class="box" x="500" y="0" width="240" height="120"/>
-            <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
-            <text class="mono" x="515" y="50">AWS • Docker</text>
-            <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
-            <text class="mono" x="515" y="90">Power BI • Pandas</text>
-            <text class="mono" x="515" y="110">Git • CI/CD Pipelines</text>
+            <rect class="box animate-fade delay-3" x="500" y="0" width="240" height="120"/>
+            <g class="animate-fade delay-3">
+                <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
+                <text class="mono" x="515" y="50">AWS • Docker</text>
+                <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
+                <text class="mono" x="515" y="90">Git • CI/CD Pipelines</text>
+                <text class="mono" x="515" y="110">Data Engineering</text>
+            </g>
         </g>
     </g>
     """
@@ -160,10 +181,12 @@ def generate_stack(is_dark):
 
 def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
+    grid = "#30363d" if is_dark else "#e1e4e8"
+    bg = "#0d1117" if is_dark else "#ffffff"
     
     # 1. Projects Header
     header_content = f"""
-    <g transform="translate(30, 40)">
+    <g transform="translate(30, 40)" class="animate-fade">
         <text class="title" x="0" y="0">04 — ecosystem</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
     </g>
@@ -174,11 +197,13 @@ def generate_projects(is_dark):
     # 2. Individual Projects for Grid (Width 390 to fit side-by-side)
     # Project 1: KnowAI
     p1 = f"""
-    <g transform="translate(15, 15)">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+    <g transform="translate(15, 15)" class="animate-fade delay-1">
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="{bg}" stroke="#238636" stroke-width="1.5">
+            <animate attributeName="stroke-width" values="1.5;3;1.5" dur="2s" repeatCount="indefinite" />
+        </rect>
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" />
         <circle cx="20" cy="25" r="5" fill="#238636">
-            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
         <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
         <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
@@ -188,7 +213,7 @@ def generate_projects(is_dark):
 
     # Project 2: DocQ
     p2 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(15, 15)" class="animate-fade delay-1">
         <rect class="box" x="0" y="0" width="360" height="85"/>
         <circle cx="20" cy="25" r="4" fill="{accent}"/>
         <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
@@ -199,7 +224,7 @@ def generate_projects(is_dark):
 
     # Project 3: Drone GCS
     p3 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(15, 15)" class="animate-fade delay-2">
         <rect class="box" x="0" y="0" width="360" height="85"/>
         <circle cx="20" cy="25" r="4" fill="{accent}"/>
         <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone GCS</tspan></text>
@@ -210,7 +235,7 @@ def generate_projects(is_dark):
 
     # Project 4: Voice Assistant
     p4 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(15, 15)" class="animate-fade delay-2">
         <rect class="box" x="0" y="0" width="360" height="85"/>
         <circle cx="20" cy="25" r="4" fill="{accent}"/>
         <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
@@ -221,7 +246,7 @@ def generate_projects(is_dark):
 
     # Project 5: Recipe Recommender
     p5 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(15, 15)" class="animate-fade delay-3">
         <rect class="box" x="0" y="0" width="360" height="85"/>
         <circle cx="20" cy="25" r="4" fill="{accent}"/>
         <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
@@ -232,11 +257,13 @@ def generate_projects(is_dark):
 
     # Project 6: Profile-site
     p6 = f"""
-    <g transform="translate(15, 15)">
-        <rect class="box" x="0" y="0" width="360" height="85"/>
-        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+    <g transform="translate(15, 15)" class="animate-fade delay-3">
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="{bg}" stroke="#238636" stroke-width="1.5">
+            <animate attributeName="stroke-width" values="1.5;3;1.5" dur="2s" repeatCount="indefinite" />
+        </rect>
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" />
         <circle cx="20" cy="25" r="5" fill="#238636">
-            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
         <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
         <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
