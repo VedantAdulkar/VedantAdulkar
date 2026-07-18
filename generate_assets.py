@@ -47,6 +47,19 @@ def create_svg(filename, width, height, is_dark, content):
     with open(filename, "w", encoding="utf-8") as f:
         f.write(svg)
 
+def create_transparent_svg(filename, width, height, is_dark, content):
+    text_color = "#c9d1d9" if is_dark else "#24292f"
+    accent_color = "#58a6ff" if is_dark else "#0969da"
+    
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+    <style>
+        .title {{ font: 700 28px 'Fira Code', 'Courier New', monospace; fill: {text_color}; letter-spacing: -0.5px; }}
+    </style>
+    {content}
+</svg>"""
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(svg)
+
 def create_card_svg(filename, width, height, is_dark, content, is_live=False, delay="3.5s"):
     bg_color = "#0d1117" if is_dark else "#ffffff"
     text_color = "#c9d1d9" if is_dark else "#24292f"
@@ -58,7 +71,6 @@ def create_card_svg(filename, width, height, is_dark, content, is_live=False, de
     
     live_bg = f'<rect width="{width}" height="{height}" fill="#238636" fill-opacity="0.05" rx="8" />' if is_live else ""
     
-    # Adding a pop-up animation wrapper for the cards based on delay
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
     <g opacity="0">
         <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="{delay}" fill="freeze" />
@@ -211,11 +223,11 @@ def generate_stack(is_dark):
                 <animateTransform attributeName="transform" type="translate" from="250 10" to="250 0" dur="0.5s" begin="4.8s" fill="freeze" />
                 <rect class="box" x="0" y="0" width="230" height="120"/>
                 <g>
-                    <text class="mono accent" x="15" y="25">Core Engineering</text>
-                    <text class="mono" x="15" y="50">Python • SQL</text>
-                    <text class="mono" x="15" y="70">FastAPI • Flask</text>
-                    <text class="mono" x="15" y="90">LangChain • LlamaIndex</text>
-                    <text class="mono" x="15" y="110">Vector Databases</text>
+                    <text class="mono accent" x="265" y="25">Core Engineering</text>
+                    <text class="mono" x="265" y="50">Python • SQL</text>
+                    <text class="mono" x="265" y="70">FastAPI • Flask</text>
+                    <text class="mono" x="265" y="90">LangChain • LlamaIndex</text>
+                    <text class="mono" x="265" y="110">Vector Databases</text>
                 </g>
             </g>
 
@@ -225,11 +237,11 @@ def generate_stack(is_dark):
                 <animateTransform attributeName="transform" type="translate" from="500 10" to="500 0" dur="0.5s" begin="5.1s" fill="freeze" />
                 <rect class="box" x="0" y="0" width="240" height="120"/>
                 <g>
-                    <text class="mono accent" x="15" y="25">Data &amp; Cloud</text>
-                    <text class="mono" x="15" y="50">AWS • Docker</text>
-                    <text class="mono" x="15" y="70">PostgreSQL • MongoDB</text>
-                    <text class="mono" x="15" y="90">Git • CI/CD Pipelines</text>
-                    <text class="mono" x="15" y="110">Data Engineering</text>
+                    <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
+                    <text class="mono" x="515" y="50">AWS • Docker</text>
+                    <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
+                    <text class="mono" x="515" y="90">Git • CI/CD Pipelines</text>
+                    <text class="mono" x="515" y="110">Data Engineering</text>
                 </g>
             </g>
         </g>
@@ -242,7 +254,7 @@ def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
     bg = "#0d1117" if is_dark else "#ffffff"
     
-    # 1. Projects Header
+    # 1. Projects Header (TRANSPARENT SVG so no double box)
     header_content = f"""
     <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">04 — ecosystem</text>
@@ -250,10 +262,9 @@ def generate_projects(is_dark):
     </g>
     """
     path_header = "assets/dark/projects_header.svg" if is_dark else "assets/projects_header.svg"
-    create_svg(path_header, 800, 80, is_dark, header_content)
+    create_transparent_svg(path_header, 800, 80, is_dark, header_content)
 
-    # 2. Individual Projects as Cards (Width increased to 400px to fix padding)
-    # They pop up starting around 5.5s
+    # 2. Individual Projects as Cards (Width 395px, perfectly aligns side-by-side)
     p1 = f"""
     <g transform="translate(15, 15)">
         <circle cx="15" cy="15" r="5" fill="#238636">
@@ -263,7 +274,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">AI Knowledge Assistant integrating LLMs.</text>
         <text class="mono-small" x="30" y="65" fill="#238636">know-ai-news.vercel.app</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 400, 95, is_dark, p1, is_live=True, delay="5.5s")
+    create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 395, 95, is_dark, p1, is_live=True, delay="5.5s")
 
     p2 = f"""
     <g transform="translate(15, 15)">
@@ -272,7 +283,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">All format summarizer (Image/PDF/Video) via AI.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 400, 95, is_dark, p2, delay="5.6s")
+    create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 395, 95, is_dark, p2, delay="5.6s")
 
     p3 = f"""
     <g transform="translate(15, 15)">
@@ -281,7 +292,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Ground Control System for Pixhawk drones.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / OpenCV</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 400, 95, is_dark, p3, delay="5.7s")
+    create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 395, 95, is_dark, p3, delay="5.7s")
 
     p4 = f"""
     <g transform="translate(15, 15)">
@@ -290,7 +301,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Intelligent agent via Google Speech &amp; OpenAI API.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / APIs</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 400, 95, is_dark, p4, delay="5.8s")
+    create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 395, 95, is_dark, p4, delay="5.8s")
 
     p5 = f"""
     <g transform="translate(15, 15)">
@@ -299,7 +310,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Suggests recipes based on available ingredients.</text>
         <text class="mono-small" x="30" y="65">Stack: Python / ML / Flask</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 400, 95, is_dark, p5, delay="5.9s")
+    create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 395, 95, is_dark, p5, delay="5.9s")
 
     p6 = f"""
     <g transform="translate(15, 15)">
@@ -310,7 +321,7 @@ def generate_projects(is_dark):
         <text class="mono-small" x="30" y="45">Personal developer portfolio web application.</text>
         <text class="mono-small" x="30" y="65" fill="#238636">profile-site-2-0.onrender.com</text>
     </g>"""
-    create_card_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 400, 95, is_dark, p6, is_live=True, delay="6.0s")
+    create_card_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 395, 95, is_dark, p6, is_live=True, delay="6.0s")
 
 
 def main():
