@@ -14,16 +14,3 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/projects.svg"/><img src="assets/projects.svg" alt="Project ecosystem"/></picture>
 
 <br>
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=VedantAdulkar&hide_title=true&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=transparent&locale=en&hide_border=true" height="150" alt="stats graph" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=VedantAdulkar&locale=en&hide_title=true&layout=compact&card_width=320&langs_count=5&theme=transparent&hide_border=true" height="150" alt="languages graph" />
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/VedantAdulkar/VedantAdulkar/output/pacman-contribution-graph-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/VedantAdulkar/VedantAdulkar/output/pacman-contribution-graph.svg">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/VedantAdulkar/VedantAdulkar/output/pacman-contribution-graph.svg" width="97%">
-</picture>
-
-</div>
