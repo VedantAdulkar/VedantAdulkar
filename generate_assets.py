@@ -245,7 +245,7 @@ def generate_stack(is_dark):
                     <text class="mono" x="15" y="50">LLMs • RAG</text>
                     <text class="mono" x="15" y="70">TensorFlow • PyTorch</text>
                     <text class="mono" x="15" y="90">Scikit-learn • Keras</text>
-                    <text class="mono" x="15" y="110">OpenAI API</text>
+                    <text class="mono" x="15" y="110">Hugging Face • Ollama</text>
                 </g>
             </g>
 
@@ -259,7 +259,7 @@ def generate_stack(is_dark):
                     <text class="mono" x="265" y="50">Python • SQL</text>
                     <text class="mono" x="265" y="70">FastAPI • Flask</text>
                     <text class="mono" x="265" y="90">LangChain • LlamaIndex</text>
-                    <text class="mono" x="265" y="110">Vector Databases</text>
+                    <text class="mono" x="265" y="110">ChromaDB • Pinecone</text>
                 </g>
             </g>
 
@@ -270,10 +270,10 @@ def generate_stack(is_dark):
                 <rect class="box" x="500" y="0" width="240" height="120"/>
                 <g>
                     <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
-                    <text class="mono" x="515" y="50">AWS • Docker</text>
+                    <text class="mono" x="515" y="50">AWS • Docker • GCP</text>
                     <text class="mono" x="515" y="70">PostgreSQL • MongoDB</text>
                     <text class="mono" x="515" y="90">Git • CI/CD Pipelines</text>
-                    <text class="mono" x="515" y="110">Data Engineering</text>
+                    <text class="mono" x="515" y="110">Apache Spark • Kafka</text>
                 </g>
             </g>
         </g>
