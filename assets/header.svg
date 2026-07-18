@@ -1,18 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180">
-    <rect width="800" height="180" fill="#ffffff" rx="6" />
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="#e1e4e8" stroke-width="0.5" stroke-dasharray="2,2"/>
+        </pattern>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#e1e4e8" opacity="0.5"/>
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#0969da;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="800" height="200" fill="#ffffff" rx="8" />
+    <rect width="800" height="200" fill="url(#grid)" rx="8" />
     <style>
-        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
-        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; opacity: 0.8; }
-        .accent { fill: #0969da; }
-        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .title { font: 700 28px 'Fira Code', 'Courier New', monospace; fill: #24292f; letter-spacing: -0.5px; }
+        .subtitle { font: 400 16px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.7; }
+        .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #24292f; }
+        .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.6; }
+        .accent { fill: #0969da; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #0969da; }
+        .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #24292f; }
+        .box { fill: none; stroke: #e1e4e8; stroke-width: 1; rx: 6px; }
     </style>
     
-    <g transform="translate(40, 60)">
-        <text class="title" x="0" y="0">Vedant Adulkar</text>
-        <text class="subtitle" x="0" y="30">AI &amp; Machine Learning Engineer | Generative AI Enthusiast</text>
-        <line x1="0" y1="50" x2="600" y2="50" stroke="#0969da" stroke-width="2" />
-        <text class="text" x="0" y="80">Transforming data into intelligent systems.</text>
+    <rect x="0" y="0" width="10" height="180" fill="url(#grad1)" rx="4"/>
+    <g transform="translate(50, 50)">
+        <text class="title" x="0" y="0">VEDANT_ADULKAR</text>
+        <text class="mono" x="0" y="30">&gt; <tspan fill="#0969da">sys.role</tspan> = "AI &amp; Machine Learning Engineer"</text>
+        <text class="mono" x="0" y="55">&gt; <tspan fill="#0969da">sys.focus</tspan> = ["Generative AI", "Data Science"]</text>
+        <text class="mono" x="0" y="80">&gt; <tspan fill="#0969da">sys.status</tspan> = "Transforming data into intelligent systems."</text>
+        
+        <!-- Live Links Section -->
+        <g transform="translate(0, 115)">
+            <rect class="box" x="0" y="-20" width="350" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
+            <circle cx="15" cy="-5" r="4" fill="#238636" />
+            <text class="mono" x="28" y="0">Live Profile: <tspan class="accent">profile-site-2-0.onrender.com</tspan></text>
+        </g>
     </g>
+    <rect x="700" y="20" width="80" height="140" fill="url(#dots)"/>
     
+    <rect width="800" height="200" fill="none" stroke="#e1e4e8" stroke-width="2" rx="8" />
 </svg>

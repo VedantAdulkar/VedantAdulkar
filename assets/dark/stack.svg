@@ -1,21 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="260" viewBox="0 0 800 260">
-    <rect width="800" height="260" fill="#0d1117" rx="6" />
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>
+        </pattern>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#30363d" opacity="0.5"/>
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="800" height="200" fill="#0d1117" rx="8" />
+    <rect width="800" height="200" fill="url(#grid)" rx="8" />
     <style>
-        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; opacity: 0.8; }
-        .accent { fill: #58a6ff; }
-        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .title { font: 700 28px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; letter-spacing: -0.5px; }
+        .subtitle { font: 400 16px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.7; }
+        .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; }
+        .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.6; }
+        .accent { fill: #58a6ff; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
+        .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .box { fill: none; stroke: #30363d; stroke-width: 1; rx: 6px; }
     </style>
     
-    <g transform="translate(40, 40)">
-        <text class="title" x="0" y="0">technical stack</text>
-        <text class="highlight" x="0" y="40">Languages:</text> <text class="text" x="120" y="40">Python, SQL, JavaScript, C</text>
-        <text class="highlight" x="0" y="70">AI/ML:</text> <text class="text" x="120" y="70">TensorFlow, PyTorch, Scikit-learn, Keras</text>
-        <text class="highlight" x="0" y="100">Data Science:</text> <text class="text" x="120" y="100">NumPy, Pandas, Matplotlib, Power BI</text>
-        <text class="highlight" x="0" y="130">Backend:</text> <text class="text" x="120" y="130">Flask, FastAPI, Node.js</text>
-        <text class="highlight" x="0" y="160">Databases:</text> <text class="text" x="120" y="160">PostgreSQL, MySQL, MongoDB</text>
-        <text class="highlight" x="0" y="190">DevOps:</text> <text class="text" x="120" y="190">Git, Docker, CI/CD</text>
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">02 — technical_stack</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
+        
+        <g transform="translate(0, 40)">
+            <!-- Column 1 -->
+            <rect class="box" x="0" y="0" width="230" height="100"/>
+            <text class="mono accent" x="15" y="25">AI &amp; Data</text>
+            <text class="mono" x="15" y="50">Python • TensorFlow</text>
+            <text class="mono" x="15" y="70">PyTorch • Scikit-learn</text>
+            <text class="mono" x="15" y="90">Pandas • NumPy</text>
+
+            <!-- Column 2 -->
+            <rect class="box" x="250" y="0" width="230" height="100"/>
+            <text class="mono accent" x="265" y="25">Backend &amp; DB</text>
+            <text class="mono" x="265" y="50">SQL • Flask • FastAPI</text>
+            <text class="mono" x="265" y="70">Node.js • PostgreSQL</text>
+            <text class="mono" x="265" y="90">MySQL • MongoDB</text>
+
+            <!-- Column 3 -->
+            <rect class="box" x="500" y="0" width="240" height="100"/>
+            <text class="mono accent" x="515" y="25">Core &amp; DevOps</text>
+            <text class="mono" x="515" y="50">JavaScript • C</text>
+            <text class="mono" x="515" y="70">Git • Docker • CI/CD</text>
+            <text class="mono" x="515" y="90">Power BI • Matplotlib</text>
+        </g>
     </g>
     
+    <rect width="800" height="200" fill="none" stroke="#30363d" stroke-width="2" rx="8" />
 </svg>

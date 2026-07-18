@@ -1,63 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340">
-    <rect width="800" height="340" fill="#0d1117" rx="6" />
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380">
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="none" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>
+        </pattern>
+        <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#30363d" opacity="0.5"/>
+        </pattern>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b392f0;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="800" height="380" fill="#0d1117" rx="8" />
+    <rect width="800" height="380" fill="url(#grid)" rx="8" />
     <style>
-        .title { font: 600 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
-        .subtitle { font: 400 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; opacity: 0.8; }
-        .accent { fill: #58a6ff; }
-        .text { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .title { font: 700 28px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; letter-spacing: -0.5px; }
+        .subtitle { font: 400 16px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.7; }
+        .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; }
+        .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #c9d1d9; opacity: 0.6; }
+        .accent { fill: #58a6ff; font-weight: 600; }
         .highlight { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #58a6ff; }
+        .text { font: 400 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+        .box { fill: none; stroke: #30363d; stroke-width: 1; rx: 6px; }
     </style>
     
-    <g transform="translate(40, 40)">
-        <text class="title" x="0" y="0">projects ecosystem</text>
+    <g transform="translate(30, 40)">
+        <text class="title" x="0" y="0">03 — ecosystem</text>
+        <line x1="0" y1="15" x2="740" y2="15" stroke="#58a6ff" stroke-width="2" stroke-opacity="0.5"/>
         
-        <a href="https://github.com/VedantAdulkar/DroneGCS" target="_blank">
-            <g transform="translate(0, 30)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">DroneGCS</text>
-                <text class="text" x="15" y="50">Drone Ground Control Station</text>
-            </g>
-        </a>
+        <!-- Nodes Background Links -->
+        <path d="M 180 90 L 370 90" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 180 180 L 370 180" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 550 90 L 740 90" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <path d="M 550 180 L 740 180" stroke="#30363d" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
         
-        <a href="https://github.com/VedantAdulkar/KnowAI_v1" target="_blank">
-            <g transform="translate(370, 30)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">KnowAI_v1</text>
-                <text class="text" x="15" y="50">AI Knowledge Assistant</text>
-            </g>
-        </a>
+        <!-- Live Project Focus -->
+        <g transform="translate(0, 40)">
+            <rect class="box" x="0" y="0" width="360" height="85" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+            <circle cx="20" cy="25" r="5" fill="#238636">
+                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
+            <text class="mono-small" x="35" y="50">AI Knowledge Assistant</text>
+            <text class="mono-small" x="35" y="70" fill="#238636">https://know-ai-news.vercel.app/</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/local_RAG" target="_blank">
-            <g transform="translate(0, 115)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">local_RAG</text>
-                <text class="text" x="15" y="50">Local Retrieval-Augmented Generation</text>
-            </g>
-        </a>
+        <g transform="translate(380, 40)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">local_RAG</tspan></text>
+            <text class="mono-small" x="35" y="50">Local Retrieval-Augmented Generation</text>
+            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/local_RAG</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/MA_13_DocSummariser" target="_blank">
-            <g transform="translate(370, 115)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">MA_13_DocSummariser</text>
-                <text class="text" x="15" y="50">Document Summarization Tool</text>
-            </g>
-        </a>
+        <g transform="translate(0, 140)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">DroneGCS</tspan></text>
+            <text class="mono-small" x="35" y="50">Drone Ground Control Station</text>
+            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/DroneGCS</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/Placement-Predictor" target="_blank">
-            <g transform="translate(0, 200)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">Placement-Predictor</text>
-                <text class="text" x="15" y="50">ML Model for Placement Prediction</text>
-            </g>
-        </a>
+        <g transform="translate(380, 140)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">MA_13_DocSummariser</tspan></text>
+            <text class="mono-small" x="35" y="50">Document Summarization Tool</text>
+            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/MA_13_DocSummariser</text>
+        </g>
         
-        <a href="https://github.com/VedantAdulkar/Profile-site-2.0" target="_blank">
-            <g transform="translate(370, 200)">
-                <rect x="0" y="0" width="350" height="70" fill="none" stroke="#8b949e" stroke-width="1" rx="4"/>
-                <text class="highlight" x="15" y="25">Profile-site-2.0</text>
-                <text class="text" x="15" y="50">Angular-based Personal Portfolio</text>
-            </g>
-        </a>
+        <g transform="translate(0, 240)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Placement-Predictor</tspan></text>
+            <text class="mono-small" x="35" y="50">ML Model for Placement Prediction</text>
+            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/Placement-Predictor</text>
+        </g>
+        
+        <g transform="translate(380, 240)">
+            <rect class="box" x="0" y="0" width="360" height="85"/>
+            <circle cx="20" cy="25" r="4" fill="#58a6ff"/>
+            <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan></text>
+            <text class="mono-small" x="35" y="50">Angular-based Personal Portfolio</text>
+            <text class="mono-small" x="35" y="70">Repo: /VedantAdulkar/Profile-site-2.0</text>
+        </g>
+
     </g>
     
+    <rect width="800" height="380" fill="none" stroke="#30363d" stroke-width="2" rx="8" />
 </svg>
