@@ -220,8 +220,8 @@ def generate_stack(is_dark):
             <!-- Column 2 pops up at 4.8s -->
             <g opacity="0">
                 <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="4.8s" fill="freeze" />
-                <animateTransform attributeName="transform" type="translate" from="250 10" to="250 0" dur="0.5s" begin="4.8s" fill="freeze" />
-                <rect class="box" x="0" y="0" width="230" height="120"/>
+                <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.5s" begin="4.8s" fill="freeze" />
+                <rect class="box" x="250" y="0" width="230" height="120"/>
                 <g>
                     <text class="mono accent" x="265" y="25">Core Engineering</text>
                     <text class="mono" x="265" y="50">Python • SQL</text>
@@ -234,8 +234,8 @@ def generate_stack(is_dark):
             <!-- Column 3 pops up at 5.1s -->
             <g opacity="0">
                 <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="5.1s" fill="freeze" />
-                <animateTransform attributeName="transform" type="translate" from="500 10" to="500 0" dur="0.5s" begin="5.1s" fill="freeze" />
-                <rect class="box" x="0" y="0" width="240" height="120"/>
+                <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.5s" begin="5.1s" fill="freeze" />
+                <rect class="box" x="500" y="0" width="240" height="120"/>
                 <g>
                     <text class="mono accent" x="515" y="25">Data &amp; Cloud</text>
                     <text class="mono" x="515" y="50">AWS • Docker</text>
