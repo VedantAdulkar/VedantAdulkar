@@ -49,7 +49,7 @@ def generate_header(is_dark):
         
         <!-- Live Links Section -->
         <g transform="translate(0, 115)">
-            <rect class="box" x="0" y="-20" width="350" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
+            <rect class="box" x="0" y="-20" width="375" height="30" fill="#238636" fill-opacity="0.1" stroke="#238636"/>
             <circle cx="15" cy="-5" r="4" fill="#238636" />
             <text class="mono" x="28" y="0">Live Profile: <tspan class="accent">profile-site-2-0.onrender.com</tspan></text>
         </g>
@@ -160,77 +160,89 @@ def generate_stack(is_dark):
 
 def generate_projects(is_dark):
     accent = "#58a6ff" if is_dark else "#0969da"
-    grid = "#30363d" if is_dark else "#e1e4e8"
-    bg = "#0d1117" if is_dark else "#ffffff"
-    content = f"""
+    
+    # 1. Projects Header
+    header_content = f"""
     <g transform="translate(30, 40)">
         <text class="title" x="0" y="0">04 — ecosystem</text>
         <line x1="0" y1="15" x2="740" y2="15" stroke="{accent}" stroke-width="2" stroke-opacity="0.5"/>
-        
-        <!-- Nodes Background Links -->
-        <path d="M 180 90 L 370 90" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-        <path d="M 180 180 L 370 180" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-        <path d="M 180 270 L 370 270" stroke="{grid}" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-        
-        <!-- Live Project Focus -->
-        <g transform="translate(0, 40)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
-            <circle cx="20" cy="25" r="5" fill="#238636">
-                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
-            </circle>
-            <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
-            <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
-            <text class="mono-small" x="35" y="70" fill="#238636">https://know-ai-news.vercel.app/</text>
-        </g>
-        
-        <g transform="translate(380, 40)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <circle cx="20" cy="25" r="4" fill="{accent}"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
-            <text class="mono-small" x="35" y="50">All format summarizer (Image/PDF/Video) via AI.</text>
-            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
-        </g>
-        
-        <g transform="translate(0, 140)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <circle cx="20" cy="25" r="4" fill="{accent}"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone</tspan></text>
-            <text class="mono-small" x="35" y="50">Obstacle-avoiding drone navigation system.</text>
-            <text class="mono-small" x="35" y="70">Stack: Python / OpenCV</text>
-        </g>
-        
-        <g transform="translate(380, 140)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <circle cx="20" cy="25" r="4" fill="{accent}"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
-            <text class="mono-small" x="35" y="50">Intelligent agent via Google Speech &amp; OpenAI API.</text>
-            <text class="mono-small" x="35" y="70">Stack: Python / APIs</text>
-        </g>
-        
-        <g transform="translate(0, 240)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <circle cx="20" cy="25" r="4" fill="{accent}"/>
-            <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
-            <text class="mono-small" x="35" y="50">ML system suggesting recipes based on ingredients.</text>
-            <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
-        </g>
-        
-        <g transform="translate(380, 240)">
-            <rect class="box" x="0" y="0" width="360" height="85"/>
-            <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
-            <circle cx="20" cy="25" r="5" fill="#238636">
-                <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
-            </circle>
-            <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
-            <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
-            <text class="mono-small" x="35" y="70" fill="#238636">profile-site-2-0.onrender.com</text>
-        </g>
-
     </g>
     """
-    path = "assets/dark/projects.svg" if is_dark else "assets/projects.svg"
-    create_svg(path, 800, 380, is_dark, content)
+    path_header = "assets/dark/projects_header.svg" if is_dark else "assets/projects_header.svg"
+    create_svg(path_header, 800, 80, is_dark, header_content)
+
+    # 2. Individual Projects for Grid (Width 390 to fit side-by-side)
+    # Project 1: KnowAI
+    p1 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+        <circle cx="20" cy="25" r="5" fill="#238636">
+            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text class="mono" x="35" y="30"><tspan class="accent">KnowAI_v1</tspan> [LIVE]</text>
+        <text class="mono-small" x="35" y="50">AI Knowledge Assistant integrating LLMs.</text>
+        <text class="mono-small" x="35" y="70" fill="#238636">know-ai-news.vercel.app</text>
+    </g>"""
+    create_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 390, 115, is_dark, p1)
+
+    # Project 2: DocQ
+    p2 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <circle cx="20" cy="25" r="4" fill="{accent}"/>
+        <text class="mono" x="35" y="30"><tspan class="accent">DocQ</tspan></text>
+        <text class="mono-small" x="35" y="50">All format summarizer (Image/PDF/Video) via AI.</text>
+        <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+    </g>"""
+    create_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 390, 115, is_dark, p2)
+
+    # Project 3: Drone GCS
+    p3 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <circle cx="20" cy="25" r="4" fill="{accent}"/>
+        <text class="mono" x="35" y="30"><tspan class="accent">Autonomous Drone GCS</tspan></text>
+        <text class="mono-small" x="35" y="50">Ground Control System for Pixhawk/RaspberryPi drones.</text>
+        <text class="mono-small" x="35" y="70">Stack: Python / OpenCV</text>
+    </g>"""
+    create_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 390, 115, is_dark, p3)
+
+    # Project 4: Voice Assistant
+    p4 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <circle cx="20" cy="25" r="4" fill="{accent}"/>
+        <text class="mono" x="35" y="30"><tspan class="accent">Voice Assistant</tspan></text>
+        <text class="mono-small" x="35" y="50">Intelligent agent via Google Speech &amp; OpenAI API.</text>
+        <text class="mono-small" x="35" y="70">Stack: Python / APIs</text>
+    </g>"""
+    create_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 390, 115, is_dark, p4)
+
+    # Project 5: Recipe Recommender
+    p5 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <circle cx="20" cy="25" r="4" fill="{accent}"/>
+        <text class="mono" x="35" y="30"><tspan class="accent">Recipe Recommender</tspan></text>
+        <text class="mono-small" x="35" y="50">Suggests recipes based on available ingredients.</text>
+        <text class="mono-small" x="35" y="70">Stack: Python / ML / Flask</text>
+    </g>"""
+    create_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 390, 115, is_dark, p5)
+
+    # Project 6: Profile-site
+    p6 = f"""
+    <g transform="translate(15, 15)">
+        <rect class="box" x="0" y="0" width="360" height="85"/>
+        <rect x="0" y="0" width="360" height="85" rx="6" fill="#238636" fill-opacity="0.05" stroke="#238636" stroke-width="1.5"/>
+        <circle cx="20" cy="25" r="5" fill="#238636">
+            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text class="mono" x="35" y="30"><tspan class="accent">Profile-site-2.0</tspan> [LIVE]</text>
+        <text class="mono-small" x="35" y="50">Personal developer portfolio web application.</text>
+        <text class="mono-small" x="35" y="70" fill="#238636">profile-site-2-0.onrender.com</text>
+    </g>"""
+    create_svg(f"assets/dark/project_6.svg" if is_dark else f"assets/project_6.svg", 390, 115, is_dark, p6)
 
 
 def main():
