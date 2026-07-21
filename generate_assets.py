@@ -99,7 +99,7 @@ def create_card_svg(filename, width, height, is_dark, content, is_live=False, de
         {live_bg}
         <style>
             .mono {{ font: 400 14px 'Fira Code', 'Courier New', monospace; fill: {text_color}; }}
-            .mono-small {{ font: 400 12px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
+            .mono-small {{ font: 400 11.5px 'Fira Code', 'Courier New', monospace; fill: {text_color}; opacity: 0.6; }}
             .accent {{ fill: {accent_color}; font-weight: 600; }}
         </style>
         {content}
@@ -298,7 +298,7 @@ def generate_projects(is_dark):
 
     # 2. Individual Projects as Cards (Width 395px, perfectly aligns side-by-side)
     p1 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="5" fill="#238636">
             <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>
@@ -309,7 +309,7 @@ def generate_projects(is_dark):
     create_card_svg(f"assets/dark/project_1.svg" if is_dark else f"assets/project_1.svg", 395, 95, is_dark, p1, is_live=True, delay="5.5s")
 
     p2 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="4" fill="{accent}"/>
         <text class="mono" x="30" y="20"><tspan class="accent">DocQ</tspan></text>
         <text class="mono-small" x="30" y="45">All format summarizer (Image/PDF/Video) via AI.</text>
@@ -318,7 +318,7 @@ def generate_projects(is_dark):
     create_card_svg(f"assets/dark/project_2.svg" if is_dark else f"assets/project_2.svg", 395, 95, is_dark, p2, delay="5.6s")
 
     p3 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="4" fill="{accent}"/>
         <text class="mono" x="30" y="20"><tspan class="accent">Autonomous Drone GCS</tspan></text>
         <text class="mono-small" x="30" y="45">Ground Control System for Pixhawk drones.</text>
@@ -327,7 +327,7 @@ def generate_projects(is_dark):
     create_card_svg(f"assets/dark/project_3.svg" if is_dark else f"assets/project_3.svg", 395, 95, is_dark, p3, delay="5.7s")
 
     p4 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="4" fill="{accent}"/>
         <text class="mono" x="30" y="20"><tspan class="accent">Voice Assistant</tspan></text>
         <text class="mono-small" x="30" y="45">Intelligent agent via Google Speech &amp; OpenAI API.</text>
@@ -336,7 +336,7 @@ def generate_projects(is_dark):
     create_card_svg(f"assets/dark/project_4.svg" if is_dark else f"assets/project_4.svg", 395, 95, is_dark, p4, delay="5.8s")
 
     p5 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="4" fill="{accent}"/>
         <text class="mono" x="30" y="20"><tspan class="accent">Recipe Recommender</tspan></text>
         <text class="mono-small" x="30" y="45">Suggests recipes based on available ingredients.</text>
@@ -345,7 +345,7 @@ def generate_projects(is_dark):
     create_card_svg(f"assets/dark/project_5.svg" if is_dark else f"assets/project_5.svg", 395, 95, is_dark, p5, delay="5.9s")
 
     p6 = f"""
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="5" fill="#238636">
             <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
         </circle>

@@ -6,11 +6,11 @@
         
         <style>
             .mono { font: 400 14px 'Fira Code', 'Courier New', monospace; fill: #24292f; }
-            .mono-small { font: 400 12px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.6; }
+            .mono-small { font: 400 11.5px 'Fira Code', 'Courier New', monospace; fill: #24292f; opacity: 0.6; }
             .accent { fill: #0969da; font-weight: 600; }
         </style>
         
-    <g transform="translate(15, 15)">
+    <g transform="translate(10, 10)">
         <circle cx="15" cy="15" r="4" fill="#0969da"/>
         <text class="mono" x="30" y="20"><tspan class="accent">Voice Assistant</tspan></text>
         <text class="mono-small" x="30" y="45">Intelligent agent via Google Speech &amp; OpenAI API.</text>
